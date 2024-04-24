@@ -77,7 +77,7 @@
 
   <br>
   @if($courseClass->id)
-  <div class="page-content-box">
+  <div class="page-box-content">
     <x-field-separator label="{{__('Page Content')}}"/>
     <div class="row">
       <div class="col">
