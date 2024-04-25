@@ -47,7 +47,7 @@
     <x-field-separator label="Uploads"/>
     <div class="row">
       <div class="col">
-        <x-file-field name="file" label="File" :pictureTemp="$file" value="{{$courseClass->file}}"/>
+        <x-file-field name="file" label="File to download" :pictureTemp="$file" value="{{$courseClass->file}}"/>
       </div>
       <div class="col">
         <x-file-field name="video" label="Video" :pictureTemp="$video" value="{{$courseClass->video}}"
