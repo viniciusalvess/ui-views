@@ -1,17 +1,17 @@
 <form id="kt_account_profile_details_form" class="form" wire:submit.prevent="submit">
-{{--  <x-field-separator label="{{__('Main')}}"/>--}}
+  <x-field-separator label="{{__('Main')}}"/>
   @if((!$sectionId) || ($showSectionField))
-  <div class="page-box-select-section-in-class">
-    <x-select-simple-field label="Section" name="courseClass.course_section_id" required="true" :items="$sections"/>
-  </div> 
+    <div class="page-box-select-section-in-class">
+      <x-select-simple-field label="Section" name="courseClass.course_section_id" required="true" :items="$sections"/>
+    </div>
   @endif
   <div class="page-box-main-fields">
     <div class="row">
       <div class="col-sm-12 col-md-6">
-        <x-text-field label="Class Name" name="courseClass.name" required="true"/>
+        <x-text-field label="Name Class" name="courseClass.name" required="true"/>
       </div>
       <div class="col-sm-12 col-md-6">
-        <x-text-field label="Class Name Alt" name="courseClass.name_alt" required="false"/>
+        <x-text-field label="Name Class Alt" name="courseClass.name_alt" required="false"/>
       </div>
 
       <div class="col-sm-12 col-md-6">
@@ -33,7 +33,7 @@
       {{--    <div class="col">--}}
       {{--      <x-text-field label="Sort order" name="courseClass.sort_order" required="false"/>--}}
       {{--    </div>--}}
-      <div class="col-sm-12 col-md-4">      
+      <div class="col-sm-12 col-md-4">
         <x-checkbox-field label="Make this class free" name="courseClass.free" required="false"/>
       </div>
 
@@ -47,7 +47,7 @@
     <x-field-separator label="Uploads"/>
     <div class="row">
       <div class="col">
-        <x-file-field name="file" label="File to download" :pictureTemp="$file" value="{{$courseClass->file}}"/>
+        <x-file-field name="file" label="File" :pictureTemp="$file" value="{{$courseClass->file}}"/>
       </div>
       <div class="col">
         <x-file-field name="video" label="Video" :pictureTemp="$video" value="{{$courseClass->video}}"
@@ -62,7 +62,8 @@
     <x-field-separator label="External Video"/>
     <div class="row">
       <div class="col-4">
-        <x-select-simple-field label="Type" name="courseClass.video_provider" required="false" :items="$videoProviders"/>
+        <x-select-simple-field label="Type" name="courseClass.video_provider" required="false"
+                               :items="$videoProviders"/>
       </div>
       <div class="col-4">
         <x-checkbox-field label="Use External Video" name="courseClass.use_link" required="false"/>
@@ -74,44 +75,45 @@
       {{--      <x-text-area-field label="Embedded Script" name="courseClass.link" required="false"/>--}}
       {{--    </div>--}}
     </div>
-</div>
-  <br>
-  @if($courseClass->id)
-  <div class="page-box-content">
-    <x-field-separator label="{{__('Page Content')}}"/>
-    <div class="row">
-      <div class="col">
-        <a class="btn btn-primary btn-sm" href="{{route('admin-page-editor', ['id' => $courseClass->staticPage->id])}}"
-           target="_blank">@lang('Edit Content')</a>
-      </div>
-    </div>
+
     <br>
-  </div>
-  @endif
-
-  {{--  <x-rich-text-field label="Content" name="courseClass.content"/>--}}
-
-  <x-field-separator label=""/>
-  {{--  <div class="d-flex justify-content-end py-6">--}}
-  {{--    @canany([COURSES_CLASSES_CREATE_PERM, COURSES_CLASSES_UPDATE_PERM])--}}
-  {{--      <x-submit-field/>--}}
-  {{--    @endcanany--}}
-  {{--  </div>--}}
-
-  <div class="hstack gap-3 mt-10 mb-20">
-
     @if($courseClass->id)
-      <a class="btn btn-primary btn-sm" href="{{route('admin-lms-course-preview',
-        ['courseId' => $courseClass->section->course_id, 'sectionId' => $courseClass->course_section_id, 'classId' => $courseClass->id])}}"
-        target="_blank">@lang('View Class')</a>
+      <div class="page-content-box">
+        <x-field-separator label="{{__('Page Content')}}"/>
+        <div class="row">
+          <div class="col">
+            <a href="{{route('admin-page-editor', ['id' => $courseClass->staticPage->id])}}"
+               target="_blank">@lang('Edit Content')</a>
+          </div>
+        </div>
+        <br>
+      </div>
     @endif
 
-    <div class="p-2 ms-auto"></div>
+    {{--  <x-rich-text-field label="Content" name="courseClass.content"/>--}}
 
-    @canany([COURSES_CLASSES_CREATE_PERM, COURSES_CLASSES_UPDATE_PERM])
-      <x-submit-field/>
-    @endcanany
+    <x-field-separator label=""/>
+    {{--  <div class="d-flex justify-content-end py-6">--}}
+    {{--    @canany([COURSES_CLASSES_CREATE_PERM, COURSES_CLASSES_UPDATE_PERM])--}}
+    {{--      <x-submit-field/>--}}
+    {{--    @endcanany--}}
+    {{--  </div>--}}
+
+    <div class="hstack gap-3 mt-10 mb-20">
+
+      @if($courseClass->id)
+        <a href="{{route('admin-lms-course-preview',
+        ['courseId' => $courseClass->section->course_id, 'sectionId' => $courseClass->course_section_id, 'classId' => $courseClass->id])}}"
+           target="_blank">@lang('View Class')</a>
+      @endif
+
+      <div class="p-2 ms-auto"></div>
+
+      @canany([COURSES_CLASSES_CREATE_PERM, COURSES_CLASSES_UPDATE_PERM])
+        <x-submit-field/>
+      @endcanany
+    </div>
+
+    <x-submit-feedback/>
   </div>
-
-  <x-submit-feedback/>
 </form>
