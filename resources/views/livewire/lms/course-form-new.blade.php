@@ -1,9 +1,9 @@
 <div>
   <form id="kt_account_profile_details_form" class="form" wire:submit.prevent="submit">
-    <x-field-separator label="{{__('Main')}}"/>
+  {{-- <x-field-separator label="{{__('Main')}}"/>--}}
     <div class="row">
       <div class="col-sm-12 col-md-12">
-        <x-text-field label="Name" name="course.name" required="true"/>
+        <x-text-field label="Course Name" name="course.name" required="true"/>
       </div>
 
       <div class="col-sm-12 col-md-12">
@@ -16,11 +16,11 @@
       <div class="col-sm-12 col-md-4">
         <x-date-field label="End date" name="course.end_date" required="false"/>
       </div>
-
+      {{-- 
       <div class="col-sm-12 col-md-4">
         <x-text-field label="Language" name="course.language" required="false"/>
       </div>
-
+      --}}
       <div class="col-sm-12 col-md-4">
         <x-select-simple-field label="Type" name="course.course_type_id" required="false"
                                :items="$courseTypes"/>
@@ -30,12 +30,12 @@
         <x-select-simple-field label="Category" name="course.course_category_id" required="false"
                                :items="$courseCategories"/>
       </div>
-
+      {{-- 
       <div class="col-sm-12 col-md-4">
         <x-select-simple-field label="Level" name="course.course_level_id" required="false"
                                :items="$courseLevels"/>
       </div>
-
+      --}}
       <div class="col-sm-12 col-md-4">
         <x-select-simple-field label="Has Certificate" name="course.certificate" required="false"
                                :items="$certificates"/>
@@ -53,7 +53,7 @@
       <div class="col-sm-12 col-md-4">
         <x-decimal-field label="Price" name="productPrice" required="true"/>
       </div>
-
+      
       <div class="col-sm-12 col-md-4">
         <x-select-simple-field label="Instructor" name="course.user_instructor_id" required="false"
                                :items="$instructors"/>
@@ -117,6 +117,7 @@
       <div class="col">
         <x-file-field name="picture" label="Picture" :pictureTemp="$picture" value="{{$course->picture}}" accept="image/*"/>
       </div>
+      {{-- 
       <div class="col">
         <x-file-field name="video" label="Video" :pictureTemp="$video" value="{{$course->video}}" accept="video/mp4,video/x-m4v,video/*"/>
       </div>
@@ -128,15 +129,16 @@
       <div class="col">
         <x-file-field name="document" label="Document" :pictureTemp="$document" value="{{$course->document}}"/>
       </div>
+      --}}
     </div>
 
     <br>
     @if($course->id)
       <div class="page-box-content">
-        <x-field-separator label="{{__('Page Content')}}"/>
+        <x-field-separator label="{{__('General content about the course')}}"/>
         <div class="row">
           <div class="col">
-            <a href="{{route('admin-page-editor', ['id' => $course->staticPage->id])}}" target="_blank">@lang('Edit Content')</a>
+            <a class="btn btn-primary btn-sm" href="{{route('admin-page-editor', ['id' => $course->staticPage->id])}}" target="_blank">@lang('Edit Content')</a>
           </div>
         </div>
         <br>

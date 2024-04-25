@@ -8,7 +8,7 @@
   <div class="page-box-main-fields">
     <div class="row">
     <div class="col-sm-12 col-md-4">
-      <x-text-field label="Name" name="courseQuiz.name" required="true"/>
+      <x-text-field label="Quiz Name" name="courseQuiz.name" required="true"/>
     </div>
     <div class="col-sm-12 col-md-4 quiz-type-field">
       <x-select-simple-field label="Quiz Type" name="courseQuiz.course_quiz_type_id" required="true" :items="$quizTypes"/>
@@ -36,9 +36,11 @@
       <x-checkbox-field label="Inactive" name="courseQuiz.inactive" required="false"/>
     </div>
   </x-field-container>
-
-  <x-field-separator label="Uploads"/>
-  <x-field-container>
+  {{--  
+  <div class="page-box-uploads">
+    <x-field-separator label="Uploads"/>
+    <div class="row">
+   
     <div class="col">
       <x-file-field name="file" label="File" :pictureTemp="$file" value="{{$courseQuiz->file}}"/>
     </div>
@@ -48,20 +50,22 @@
     <div class="col">
       <x-file-field name="document" label="Document" :pictureTemp="$document" value="{{$courseQuiz->document}}"/>
     </div>
-  </x-field-container>
-
+  </div>
+  --}}
 
   <br>
   @if($courseQuiz->id)
-    <x-field-separator label="{{__('Page Content')}}"/>
-    <div class="row">
-      <div class="col">
-        <a href="{{route('admin-page-editor', ['id' => $courseQuiz->staticPage->id])}}" target="_blank">@lang('Edit Content')</a>
+  {{--   <div class="page-box-content">
+      <x-field-separator label="{{__('Page Content')}}"/>
+      <div class="row">
+        <div class="col">
+          <a href="{{route('admin-page-editor', ['id' => $courseQuiz->staticPage->id])}}" target="_blank">@lang('Edit Content')</a>
+        </div>
       </div>
-    </div>
-    <br>
+      <br>
+  </div>
   @endif
-{{--  <x-rich-text-field label="Content" name="courseQuiz.content"/>--}}
+  <x-rich-text-field label="Content" name="courseQuiz.content"/>--}}
 
   @isset($courseQuiz->id)
     <p class="h6">@lang('Questions') <span><button class="btn btn-link btn-sm" wire:click.prevent="refreshQuestions"><i
@@ -146,7 +150,7 @@
                       </table>
                     </div>
 
-                    <button class="btn btn-link btn-sm" wire:click.prevent="addAlternative({{$quest->id}})"><i
+                    <button class="btn btn-primary btn-sm" wire:click.prevent="addAlternative({{$quest->id}})"><i
                         class="bi bi-plus"></i> @lang('Add Alternative')</button>
                   </div>
                 </div>
