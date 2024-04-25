@@ -75,7 +75,7 @@
       {{--      <x-text-area-field label="Embedded Script" name="courseClass.link" required="false"/>--}}
       {{--    </div>--}}
     </div>
-
+  </div>
     <br>
     @if($courseClass->id)
       <div class="page-content-box">
@@ -115,5 +115,5 @@
     </div>
 
     <x-submit-feedback/>
-  </div>
+  
 </form>
