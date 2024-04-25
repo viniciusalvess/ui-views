@@ -91,7 +91,7 @@
                data-bs-parent="#accordionQuestions" wire:ignore.self>
             <div class="accordion-body">
               <div class="row">
-{{--                @include('components.form.TextAreaInput', ['name' => "questions.$loop->index.question", 'label' => 'Question - '.$loop->iteration, 'col' => 3])--}}
+                      {{--   @include('components.form.TextAreaInput', ['name' => "questions.$loop->index.question", 'label' => 'Question - '.$loop->iteration, 'col' => 3])--}}
                 <x-text-area-field label="{{__('Question')}} - {{$loop->iteration}}" name="questions.{{$loop->index}}.question"/>
                 {{--                @include('components.form.SelectSimpleInput', ['name' => "questions.$loop->index.type", 'label' => 'Type', 'col' => 3, 'items' => $questionTypes])--}}
                 <div class="col-2">
@@ -135,11 +135,11 @@
                         @foreach($quest->alternatives as $alt)
                           <tr>
                             <td>
-{{--                              @include('components.form.TextAreaInput', ['name' => "questions.".$loop->parent->index.".alternatives.$loop->index.answer", 'label' => '', 'col' => 12])--}}
+                                  {{--   @include('components.form.TextAreaInput', ['name' => "questions.".$loop->parent->index.".alternatives.$loop->index.answer", 'label' => '', 'col' => 12])--}}
                               <x-text-area-field label="{{__('Alternative')}} - {{$loop->iteration}}" name="questions.{{$loop->parent->index}}.alternatives.{{$loop->index}}.answer"/>
                             </td>
                             <td>
-{{--                              @include('components.form.CheckBoxInput', ['name' => "questions.".$loop->parent->index.".alternatives.$loop->index.correct", 'label' => '', 'col' => 1])--}}
+                                    {{--                              @include('components.form.CheckBoxInput', ['name' => "questions.".$loop->parent->index.".alternatives.$loop->index.correct", 'label' => '', 'col' => 1])--}}
                               <x-checkbox-field label="" name="questions.{{$loop->parent->index}}.alternatives.{{$loop->index}}.correct" required="false"/>
                             </td>
                             <td>
