@@ -8,10 +8,10 @@
   <div class="page-box-main-fields">
     <div class="row">
       <div class="col-sm-12 col-md-6">
-        <x-text-field label="Name Class" name="courseClass.name" required="true"/>
+        <x-text-field label="Class Name" name="courseClass.name" required="true"/>
       </div>
       <div class="col-sm-12 col-md-6">
-        <x-text-field label="Name Class Alt" name="courseClass.name_alt" required="false"/>
+        <x-text-field label="Class Name Alt" name="courseClass.name_alt" required="false"/>
       </div>
 
       <div class="col-sm-12 col-md-6">
