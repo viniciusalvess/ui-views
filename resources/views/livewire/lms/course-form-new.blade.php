@@ -46,7 +46,7 @@
 
       @if(Auth::user()->super_admin)
         <div class="col-sm-12 col-md-4">
-          <x-select-simple-field label="Product" name="course.product_id" required="false" :items="$products"/>
+          <x-select-simple-field label="linked Product" name="course.product_id" required="false" :items="$products"/>
         </div>
       @endif
 
@@ -69,51 +69,51 @@
       {{--    </div>--}}
 
       <div class="col-sm-12 col-md-4">
-        <x-checkbox-field label="Inactive" name="course.inactive" required="false"/>
+        <x-checkbox-field label="Deactivate this course" name="course.inactive" required="false"/>
       </div>
     </div>
-
-    <x-field-separator label="{{__('Certificate Fields')}}"/>
-    <div class="row">
-      <div class="col-sm-12 col-md-12">
-        <x-text-field label="Name Alt" name="course.name_alt" required="false"/>
-      </div>
-      <div class="col-sm-12 col-md-3">
-        <x-text-field label="Code" name="course.code" required="false"/>
-      </div>
-
-      <div class="col-sm-12 col-md-3">
-        <x-text-field label="Duration" name="course.duration" required="false"/>
-      </div>
-
-      <div class="col-sm-12 col-md-3">
-        <x-text-field label="Valid For" name="course.valid_for" required="false"/>
-      </div>
-
-      <div class="col-sm-12 col-md-3">
-        <x-text-field label="Location" name="course.location" required="false"/>
-      </div>
-        <div class="row grouping">
-          <div class="col-sm-12 col-md-12">
-            <x-text-area-field label="Technical Reference" name="course.technical_ref" required="false" rows="1"/>
-          </div>
-
-          <div class="col-sm-12 col-md-12">
-            <x-text-area-field label="Technical Reference Alt" name="course.technical_ref_alt" required="false" rows="1"/>
-          </div>
+    <div class="page-box-certificate">
+      <div label="{{__('Certificate Fields')}}"/>
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <x-text-field label="Name Alt" name="course.name_alt" required="false"/>
         </div>
-        <div class="row grouping">
-          <div class="col-sm-12 col-md-12">
-            <x-text-area-field label="Program Content" name="course.program_content" required="false" rows="1"/>
-          </div>
-
-          <div class="col-sm-12 col-md-12">
-            <x-text-area-field label="Program Content Alt" name="course.program_content_alt" required="false" rows="1"/>
-          </div>
+        <div class="col-sm-12 col-md-3">
+          <x-text-field label="Code" name="course.code" required="false"/>
         </div>
 
+        <div class="col-sm-12 col-md-3">
+          <x-text-field label="Duration" name="course.duration" required="false"/>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <x-text-field label="Valid For" name="course.valid_for" required="false"/>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <x-text-field label="Location" name="course.location" required="false"/>
+        </div>
+          <div class="row grouping">
+            <div class="col-sm-12 col-md-12">
+              <x-text-area-field label="Technical Reference" name="course.technical_ref" required="false" rows="1"/>
+            </div>
+
+            <div class="col-sm-12 col-md-12">
+              <x-text-area-field label="Technical Reference Alt" name="course.technical_ref_alt" required="false" rows="1"/>
+            </div>
+          </div>
+          <div class="row grouping">
+            <div class="col-sm-12 col-md-12">
+              <x-text-area-field label="Program Content" name="course.program_content" required="false" rows="1"/>
+            </div>
+
+            <div class="col-sm-12 col-md-12">
+              <x-text-area-field label="Program Content Alt" name="course.program_content_alt" required="false" rows="1"/>
+            </div>
+          </div>
+
+      </div>
     </div>
-
     <x-field-separator label="{{__('Uploads')}}"/>
     <div class="row">
       <div class="col">
