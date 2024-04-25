@@ -93,22 +93,24 @@
       <div class="col-sm-12 col-md-3">
         <x-text-field label="Location" name="course.location" required="false"/>
       </div>
+        <div class="row grouping">
+          <div class="col-sm-12 col-md-12">
+            <x-text-area-field label="Technical Reference" name="course.technical_ref" required="false" rows="1"/>
+          </div>
 
-      <div class="col-sm-12 col-md-12">
-        <x-text-area-field label="Technical Reference" name="course.technical_ref" required="false" rows="1"/>
-      </div>
+          <div class="col-sm-12 col-md-12">
+            <x-text-area-field label="Technical Reference Alt" name="course.technical_ref_alt" required="false" rows="1"/>
+          </div>
+        </div>
+        <div class="row grouping">
+          <div class="col-sm-12 col-md-12">
+            <x-text-area-field label="Program Content" name="course.program_content" required="false" rows="1"/>
+          </div>
 
-      <div class="col-sm-12 col-md-12">
-        <x-text-area-field label="Technical Reference Alt" name="course.technical_ref_alt" required="false" rows="1"/>
-      </div>
-
-      <div class="col-sm-12 col-md-12">
-        <x-text-area-field label="Program Content" name="course.program_content" required="false" rows="1"/>
-      </div>
-
-      <div class="col-sm-12 col-md-12">
-        <x-text-area-field label="Program Content Alt" name="course.program_content_alt" required="false" rows="1"/>
-      </div>
+          <div class="col-sm-12 col-md-12">
+            <x-text-area-field label="Program Content Alt" name="course.program_content_alt" required="false" rows="1"/>
+          </div>
+        </div>
 
     </div>
 
