@@ -7,10 +7,10 @@
       </div>
     @endif
     <div class="col">
-      <x-text-field label="Name" name="courseSection.name" required="true"/>
+      <x-text-field label="Course Name" name="courseSection.name" required="true"/>
     </div>
       <div class="col-sm-12 col-md-12">
-        <x-text-field label="Name Alt" name="courseSection.name_alt" required="false"/>
+        <x-text-field label="Course Name Alt" name="courseSection.name_alt" required="false"/>
       </div>
     <div class="col">
       <x-text-field label="Description" name="courseSection.description" required="false"/>
@@ -19,7 +19,7 @@
 {{--      <x-text-field label="Sort order" name="courseSection.sort_order" required="false"/>--}}
 {{--    </div>--}}
     <div class="col">
-      <x-checkbox-field label="Inactive" name="courseSection.inactive" required="false"/>
+      <x-checkbox-field label="Deactivate this course" name="courseSection.inactive" required="false"/>
     </div>
   </x-field-container>
 

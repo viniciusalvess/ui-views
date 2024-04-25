@@ -16,13 +16,13 @@
       <div class="col-sm-12 col-md-4">
         <x-date-field label="End date" name="course.end_date" required="false"/>
       </div>
-      {{-- 
-      <div class="col-sm-12 col-md-4">
+
+      <div class="col-sm-12 col-md-4 page-box-language-field">
         <x-text-field label="Language" name="course.language" required="false"/>
       </div>
-      --}}
-      <div class="col-sm-12 col-md-4">
-        <x-select-simple-field label="Type" name="course.course_type_id" required="false"
+
+      <div class="col-sm-12 col-md-4 page-box-course-type-field">
+        <x-select-simple-field label="Course Type" name="course.course_type_id" required="false"
                                :items="$courseTypes"/>
       </div>
 
@@ -30,15 +30,19 @@
         <x-select-simple-field label="Category" name="course.course_category_id" required="false"
                                :items="$courseCategories"/>
       </div>
-      {{-- 
-      <div class="col-sm-12 col-md-4">
+
+      <div class="col-sm-12 col-md-4 page-box-level-field">
         <x-select-simple-field label="Level" name="course.course_level_id" required="false"
                                :items="$courseLevels"/>
       </div>
-      --}}
+
       <div class="col-sm-12 col-md-4">
         <x-select-simple-field label="Has Certificate" name="course.certificate" required="false"
                                :items="$certificates"/>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <x-select-simple-field label="Certificate" name="course.course_certificate_id" required="false"
+                               :items="$certificateList"/>
       </div>
       <div class="col-sm-12 col-md-4">
         <x-select-simple-field label="Grade Map Type" name="course.grade_map_type" required="false" :items="$gradeMaptypes"/>
@@ -59,10 +63,7 @@
                                :items="$instructors"/>
       </div>
 
-      <div class="col-sm-12 col-md-4">
-        <x-select-simple-field label="Certificate" name="course.course_certificate_id" required="false"
-                               :items="$certificateList"/>
-      </div>
+
 
       {{--    <div class="col">--}}
       {{--      <x-text-field label="Name internal" name="course.name_internal" required="false"/>--}}
@@ -119,19 +120,19 @@
       <div class="col">
         <x-file-field name="picture" label="Picture" :pictureTemp="$picture" value="{{$course->picture}}" accept="image/*"/>
       </div>
-      {{-- 
-      <div class="col">
+
+      <div class="col page-box-course-video-field">
         <x-file-field name="video" label="Video" :pictureTemp="$video" value="{{$course->video}}" accept="video/mp4,video/x-m4v,video/*"/>
       </div>
 
-      <div class="col">
+      <div class="col page-box-file-field">
         <x-file-field name="file" label="File" :pictureTemp="$file" value="{{$course->file}}"/>
       </div>
 
-      <div class="col">
+      <div class="col page-course-document-field">
         <x-file-field name="document" label="Document" :pictureTemp="$document" value="{{$course->document}}"/>
       </div>
-      --}}
+
     </div>
 
     <br>

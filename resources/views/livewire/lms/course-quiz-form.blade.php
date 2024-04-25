@@ -1,5 +1,8 @@
 <form id="kt_account_profile_details_form" class="form" wire:submit.prevent="submit">
-{{--    <x-field-separator label="{{__('Main')}}"/>--}}
+  <div class="main-name-page">
+    <x-field-separator label="{{__('Main')}}"/>
+  </div>
+
   @if((!$sectionId) || ($showSectionField))
   <div class="page-box-select-section-in-class">
     <x-select-simple-field label="Section" name="courseQuiz.course_section_id" required="true" :items="$sections"/>
@@ -36,7 +39,7 @@
       <x-checkbox-field label="Inactive" name="courseQuiz.inactive" required="false"/>
     </div>
   </x-field-container>
-  {{--  
+
   <div class="page-box-uploads">
     <x-field-separator label="Uploads"/>
     <div class="row">
@@ -51,11 +54,11 @@
       <x-file-field name="document" label="Document" :pictureTemp="$document" value="{{$courseQuiz->document}}"/>
     </div>
   </div>
-  --}}
+
 
   <br>
   @if($courseQuiz->id)
-  {{--   <div class="page-box-content">
+    <div class="page-box-content page-box-content-quiz">
       <x-field-separator label="{{__('Page Content')}}"/>
       <div class="row">
         <div class="col">
@@ -65,7 +68,7 @@
       <br>
   </div>
   @endif
-  <x-rich-text-field label="Content" name="courseQuiz.content"/>--}}
+  <x-rich-text-field label="Content" name="courseQuiz.content"/>
 
   @isset($courseQuiz->id)
     <p class="h6">@lang('Questions') <span><button class="btn btn-link btn-sm" wire:click.prevent="refreshQuestions"><i
