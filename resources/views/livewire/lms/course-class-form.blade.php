@@ -1,5 +1,5 @@
 <form id="kt_account_profile_details_form" class="form" wire:submit.prevent="submit">
-  <x-field-separator label="{{__('Main')}}"/>
+{{--  <x-field-separator label="{{__('Main')}}"/>--}}
   @if((!$sectionId) || ($showSectionField))
   <div class="page-box-select-section-in-class">
     <x-select-simple-field label="Section" name="courseClass.course_section_id" required="true" :items="$sections"/>
