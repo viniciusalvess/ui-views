@@ -38,20 +38,21 @@
 <div class="col-sm-12 col-md-3 inactive-field">
       <x-checkbox-field label="Inactive" name="courseQuiz.inactive" required="false"/>
     </div>
-  </x-field-container>
+</div>
 
   <div class="page-box-uploads">
     <x-field-separator label="Uploads"/>
     <div class="row">
    
-    <div class="col">
-      <x-file-field name="file" label="File" :pictureTemp="$file" value="{{$courseQuiz->file}}"/>
-    </div>
-    <div class="col">
-      <x-file-field name="video" label="Video" :pictureTemp="$video" value="{{$courseQuiz->video}}" accept="video/mp4,video/x-m4v,video/*"/>
-    </div>
-    <div class="col">
-      <x-file-field name="document" label="Document" :pictureTemp="$document" value="{{$courseQuiz->document}}"/>
+      <div class="col">
+        <x-file-field name="file" label="File" :pictureTemp="$file" value="{{$courseQuiz->file}}"/>
+      </div>
+      <div class="col">
+        <x-file-field name="video" label="Video" :pictureTemp="$video" value="{{$courseQuiz->video}}" accept="video/mp4,video/x-m4v,video/*"/>
+      </div>
+      <div class="col">
+        <x-file-field name="document" label="Document" :pictureTemp="$document" value="{{$courseQuiz->document}}"/>
+      </div>
     </div>
   </div>
 
@@ -139,7 +140,7 @@
                               <x-text-area-field label="{{__('Alternative')}} - {{$loop->iteration}}" name="questions.{{$loop->parent->index}}.alternatives.{{$loop->index}}.answer"/>
                             </td>
                             <td>
-                                    {{--                              @include('components.form.CheckBoxInput', ['name' => "questions.".$loop->parent->index.".alternatives.$loop->index.correct", 'label' => '', 'col' => 1])--}}
+                          {{--                              @include('components.form.CheckBoxInput', ['name' => "questions.".$loop->parent->index.".alternatives.$loop->index.correct", 'label' => '', 'col' => 1])--}}
                               <x-checkbox-field label="" name="questions.{{$loop->parent->index}}.alternatives.{{$loop->index}}.correct" required="false"/>
                             </td>
                             <td>
