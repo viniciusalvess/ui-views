@@ -90,9 +90,9 @@
     <br>
   </div>
   @endif
-
-  {{--  <x-rich-text-field label="Content" name="courseClass.content"/>--}}
-
+    <div class="page-box-rich-text-fieldt">
+      <x-rich-text-field label="Content" name="courseClass.content"/>
+    </div>
   <x-field-separator label=""/>
   {{--  <div class="d-flex justify-content-end py-6">--}}
   {{--    @canany([COURSES_CLASSES_CREATE_PERM, COURSES_CLASSES_UPDATE_PERM])--}}
