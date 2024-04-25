@@ -1,34 +1,38 @@
 <form id="kt_account_profile_details_form" class="form" wire:submit.prevent="submit">
   <x-field-separator label="{{__('Main')}}"/>
   @if((!$sectionId) || ($showSectionField))
+  <div class="page-box-select-section-in-class">
     <x-select-simple-field label="Section" name="courseQuiz.course_section_id" required="true" :items="$sections"/>
+  </div>  
   @endif
-  <x-field-container>
-    <div class="col">
+  <div class="page-box-main-fields">
+    <div class="row">
+    <div class="col-sm-12 col-md-4">
       <x-text-field label="Name" name="courseQuiz.name" required="true"/>
     </div>
-    <div class="col">
+    <div class="col-sm-12 col-md-4 quiz-type-field">
       <x-select-simple-field label="Quiz Type" name="courseQuiz.course_quiz_type_id" required="true" :items="$quizTypes"/>
     </div>
-    <div class="col">
+    <div class="col-sm-12 col-md-4">
       <x-text-field label="Description" name="courseQuiz.description" required="false"/>
     </div>
-    <div class="col">
-      <x-text-field label="Code" name="courseQuiz.code" required="false"/>
-    </div>
-    <div class="col">
+
+    <div class="col-sm-12 col-md-3">
       <x-datetime-field label="Start date" name="courseQuiz.start_date" required="false"/>
     </div>
-    <div class="col">
+    <div class="col-sm-12 col-md-3">
       <x-datetime-field label="End date" name="courseQuiz.end_date" required="false"/>
     </div>
-{{--    <div class="col">--}}
+    <div class="col-sm-12 col-md-4 code-field">
+      <x-text-field label="Code" name="courseQuiz.code" required="false"/>
+    </div>
+{{--    <div class="col-sm-12 col-md-3">--}}
 {{--      <x-text-field label="Sort order" name="courseQuiz.sort_order" required="false"/>--}}
 {{--    </div>--}}
-    <div class="col">
-      <x-checkbox-field label="Allow retake" name="courseQuiz.allow_retake" required="false"/>
-    </div>
-    <div class="col">
+        <div class="col-sm-12 col-md-3 allow-retake-field">
+          <x-checkbox-field label="Allow retake" name="courseQuiz.allow_retake" required="false"/>
+        </div>
+<div class="col-sm-12 col-md-3 inactive-field">
       <x-checkbox-field label="Inactive" name="courseQuiz.inactive" required="false"/>
     </div>
   </x-field-container>
