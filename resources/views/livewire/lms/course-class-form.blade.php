@@ -1,5 +1,7 @@
 <form id="kt_account_profile_details_form" class="form" wire:submit.prevent="submit">
-{{--  <x-field-separator label="{{__('Main')}}"/>--}}
+<div class="main-name-page">  
+  <x-field-separator label="{{__('Main')}}"/>
+</div> 
   @if((!$sectionId) || ($showSectionField))
   <div class="page-box-select-section-in-class">
     <x-select-simple-field label="Section" name="courseClass.course_section_id" required="true" :items="$sections"/>
@@ -74,7 +76,7 @@
       {{--      <x-text-area-field label="Embedded Script" name="courseClass.link" required="false"/>--}}
       {{--    </div>--}}
     </div>
-</div>
+  </div>
   <br>
   @if($courseClass->id)
   <div class="page-box-content">
