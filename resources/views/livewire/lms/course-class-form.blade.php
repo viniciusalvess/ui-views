@@ -61,14 +61,14 @@
   <div class="page-box-external-video">
     <x-field-separator label="External Video"/>
     <div class="row">
-      <div class="col-4">
+      <div class="col-sm-12 col-md-3">
+        <x-checkbox-field label="Use External Video" name="courseClass.use_link" required="false"/>
+      </div>
+      <div class="col-sm-12 col-md-3">
         <x-select-simple-field label="Type" name="courseClass.video_provider" required="false"
                                :items="$videoProviders"/>
       </div>
-      <div class="col-4">
-        <x-checkbox-field label="Use External Video" name="courseClass.use_link" required="false"/>
-      </div>
-      <div class="col-sm-12 col-md-12">
+      <div class="col-sm-12 col-md-6">
         <x-text-field label="Video URL" name="courseClass.link" required="false"/>
       </div>
       {{--    <div class="col-12">--}}
@@ -82,7 +82,7 @@
         <x-field-separator label="{{__('Page Content')}}"/>
         <div class="row">
           <div class="col">
-            <a href="{{route('admin-page-editor', ['id' => $courseClass->staticPage->id])}}"
+            <a class="btn btn-primary btn-sm" href="{{route('admin-page-editor', ['id' => $courseClass->staticPage->id])}}"
                target="_blank">@lang('Edit Content')</a>
           </div>
         </div>
@@ -102,7 +102,7 @@
     <div class="hstack gap-3 mt-10 mb-20">
 
       @if($courseClass->id)
-        <a href="{{route('admin-lms-course-preview',
+        <a class="btn btn-primary btn-sm" href="{{route('admin-lms-course-preview',
         ['courseId' => $courseClass->section->course_id, 'sectionId' => $courseClass->course_section_id, 'classId' => $courseClass->id])}}"
            target="_blank">@lang('View Class')</a>
       @endif

@@ -57,7 +57,7 @@
       <div class="col-sm-12 col-md-4">
         <x-decimal-field label="Price" name="productPrice" required="true"/>
       </div>
-      
+
       <div class="col-sm-12 col-md-4">
         <x-select-simple-field label="Instructor" name="course.user_instructor_id" required="false"
                                :items="$instructors"/>
@@ -77,7 +77,7 @@
       <div label="{{__('Certificate Fields')}}"/>
       <div class="row">
         <div class="col-sm-12 col-md-12">
-          <x-text-field label="Name Alt" name="course.name_alt" required="false"/>
+          <x-text-field label="Course Name Alt" name="course.name_alt" required="false"/>
         </div>
         <div class="col-sm-12 col-md-3">
           <x-text-field label="Code" name="course.code" required="false"/>
@@ -115,8 +115,8 @@
 
       </div>
     </div>
-    <x-field-separator label="{{__('Uploads')}}"/>
-    <div class="row">
+    <div class="row page-box-upload-fields">
+    <x-field-separator label="{{__('Capa do curso (Imagem ou Vídeo)')}}"/>
       <div class="col">
         <x-file-field name="picture" label="Picture" :pictureTemp="$picture" value="{{$course->picture}}" accept="image/*"/>
       </div>
