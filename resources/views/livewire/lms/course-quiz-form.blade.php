@@ -37,12 +37,12 @@
         <x-checkbox-field label="Allow retake" name="courseQuiz.allow_retake" required="false"/>
       </div>
       <div class="col-sm-12 col-md-3 inactive-field">
-        <x-checkbox-field label="Inactive" name="courseQuiz.inactive" required="false"/>
+        <x-checkbox-field label="Deactivate this Quiz" name="courseQuiz.inactive" required="false"/>
       </div>
     </div>
   </div>
 
-  <div class="page-box-uploads">
+  <div class="page-box-quiz-uploads">
     <x-field-separator label="Uploads"/>
     <div class="row">
 
