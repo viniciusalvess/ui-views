@@ -1,7 +1,7 @@
 <div>
   <form id="kt_account_profile_details_form" class="form" wire:submit.prevent="submit">
   {{-- <x-field-separator label="{{__('Main')}}"/>--}}
-    <div class="row">
+    <div class="page-box-main-fields">
       <div class="col-sm-12 col-md-12">
         <x-text-field label="Course Name" name="course.name" required="true"/>
       </div>
