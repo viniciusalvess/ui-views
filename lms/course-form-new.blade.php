@@ -119,15 +119,15 @@
       </div>
     </div>
     <div class="row page-box-upload-fields">
-    <x-field-separator label="{{__('Course Cover')}}" />
+      <div label="{{__('Course Cover')}}" /> <i class="bi bi-question-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-html="true" title="Se for adicionado um vídeo, o mesmo será exibido como capa do produto na Loja da plataforma</b>">
+      </i></div>
 
       <div class="col">
         <x-file-field name="picture" label="Picture" :pictureTemp="$picture" value="{{$course->picture}}" accept="image/*"/>
       </div>
 
       <div class="col page-box-course-video-field">
-        <i class="bi bi-question-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-html="true" title="Se for adicionado um vídeo, o mesmo será exibido como capa do produto na Loja da plataforma</b>">
-        </i>
+
         <x-file-field name="video" label="Video" :pictureTemp="$video" value="{{$course->video}}" accept="video/mp4,video/x-m4v,video/*"/>
       </div>
 
