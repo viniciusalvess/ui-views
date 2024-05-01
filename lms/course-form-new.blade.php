@@ -119,10 +119,9 @@
       </div>
     </div>
     <div class="row page-box-upload-fields">
-    <x-field-separator label="{{__('Course Cover')}}"/>
-      <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-        Tooltip Test
-      </i>
+    <x-field-separator label="{{__('Course Cover')}}" <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-html="true" title="Se for adicionado um vídeo, o mesmo será exibido como capa do produto na Loja da plataforma</b>">
+      </i>/>
+
       <div class="col">
         <x-file-field name="picture" label="Picture" :pictureTemp="$picture" value="{{$course->picture}}" accept="image/*"/>
       </div>
