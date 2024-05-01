@@ -119,7 +119,7 @@
       </div>
     </div>
     <div class="row page-box-upload-fields">
-    <x-field-separator label="{{__('Course Cover')}}" /> <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-html="true" title="Se for adicionado um vídeo, o mesmo será exibido como capa do produto na Loja da plataforma</b>">
+    <x-field-separator label="{{__('Course Cover')}}" /> <i class="bi bi-question-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-html="true" title="Se for adicionado um vídeo, o mesmo será exibido como capa do produto na Loja da plataforma</b>">
       </i>
 
       <div class="col">
