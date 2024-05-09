@@ -70,11 +70,14 @@
       {{--    </div>--}}
 
       <div class="col-sm-12 col-md-4">
+        <x-checkbox-field label="Block Next Class" name="course.block_next_class" required="false"/>
+      </div>
+      <div class="col-sm-12 col-md-4">
         <x-checkbox-field label="Deactivate this course" name="course.inactive" required="false"/>
       </div>
     </div>
     <div class="page-box-certificate">
-      <div label="{{__('Certificate Fields')}}"/>
+      <x-field-separator label="{{__('Certificate Fields')}}"/>
       <div class="row">
         <div class="col-sm-12 col-md-12">
           <x-text-field label="Course Name Alt" name="course.name_alt" required="false"/>
@@ -116,7 +119,8 @@
       </div>
     </div>
     <div class="row page-box-upload-fields">
-    <x-field-separator label="{{__('Capa do curso (Imagem ou Vídeo)')}}"/>
+    <x-field-separator label="{{__('Course Cover')}}" />
+    <p>Info <i class="bi bi-question-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-html="true" title="Se for adicionado um vídeo, o mesmo será exibido como capa do produto na Loja da plataforma"></i></p>
       <div class="col">
         <x-file-field name="picture" label="Picture" :pictureTemp="$picture" value="{{$course->picture}}" accept="image/*"/>
       </div>
