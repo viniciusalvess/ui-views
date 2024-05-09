@@ -15,7 +15,7 @@
 
             <div class="row position-relative align-items-center">
               <div class="col-md-6 px-md-5">
-                <h1 class="mb-3">@lang('Welcome to our platform!')</h1>
+                <h1 class="mb-3">@lang('Welcome to our plataform!')</h1>
                 {{--                <p class="mb-3">Expand knowledge by reading book Two before narrow not relied on how except moment myself Dejection assurance. </p>--}}
 
                 <div class="input-group">
