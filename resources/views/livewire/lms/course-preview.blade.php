@@ -4,94 +4,59 @@
     <section class="py-0 pb-lg-5">
       <div class="container">
         <div class="row g-3">
-          <!-- Course video START -->
           <div class="col-12">
             <div class="video-player rounded-3">
-              {{--              poster="assets/images/videos/poster.jpg"--}}
-
               @if($currentClass?->use_link)
-                {{--                <div id="vin-video-plyr" data-plyr-provider="{{$currentClass->video_provider}}"--}}
-                {{--                     data-plyr-embed-id="{{$currentClass->video_id}}">--}}
-                {{--                  {!! $currentClass->link !!}--}}
-                {{--                </div>--}}
-                <div id="vin-yt-player"></div>
-                {{--                <div id="vin-video-plyr" data-plyr-provider="{{$currentClass->video_provider}}" data-plyr-embed-id="{{$currentClass->video_id}}"></div>--}}
+                <div id="vin-video-plyr" data-plyr-provider="{{$currentClass->video_provider}}"
+                     data-plyr-embed-id="{{VinStrHelper::extractYoutubeVideId($currentClass->link)}}"></div>
               @else
                 @if($currentClass?->video)
-                  <video id="vin-video-plyr" controls crossorigin="anonymous" playsinline>
+                  <video id="vin-video-plyr" crossorigin="anonymous" playsinline
+                         data-plyr-config='{ "settings": [""] }'>
                     <source src="{{$currentClass?->videoUrl()}}" type="video/mp4">
-                    {{--                <source src="assets/images/videos/360p.mp4" type="video/mp4" size="360">--}}
-                    {{--                <source src="assets/images/videos/720p.mp4" type="video/mp4" size="720">--}}
-                    {{--                <source src="assets/images/videos/1080p.mp4" type="video/mp4" size="1080">--}}
-                    <!-- Caption files -->
-                    {{--                <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt" default>--}}
-                    {{--                <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt">--}}
                   </video>
                 @else
-                  {{--                  <h3>@lang('This class has no video')</h3>--}}
                   @script
                   <script>
                     fetch('{{route('admin-lms-course-preview-video-start', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'});
+                    fetch('{{route('admin-lms-course-preview-video-end', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'});
                   </script>
                   @endscript
                 @endif
               @endif
             </div>
-          </div>
-          <!-- Course video END -->
 
-          <!-- Playlist responsive toggler START -->
+            @if($currentClass?->hasVideo())
+              <br>
+              <span>@lang('This class ends in'): <span id="count-down" class="badge text-bg-info"></span></span>
+            @endif
+          </div>
           <div class="col-12 d-lg-none">
             <button class="btn btn-primary mb-3" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i class="bi bi-camera-video me-1"></i> @lang('Playlist')
             </button>
           </div>
-          <!-- Playlist responsive toggler END -->
         </div>
       </div>
     </section>
 
-    {{--    @if($currentClass->document)--}}
-    {{--      <section class="pt-0">--}}
-    {{--        <div class="container">--}}
-    {{--          <div class="row g-lg-5">--}}
-    {{--            <embed src="{{VinLiveWireHelper::downloadUrlPresigned($currentClass->document, false)}}#toolbar=0" height="500"--}}
-    {{--                   type="application/pdf" >--}}
-    {{--          </div>--}}
-    {{--        </div>--}}
-    {{--      </section>--}}
-
-    {{--      @script--}}
-    {{--      <script>--}}
-    {{--      fetch('{{route('admin-lms-course-preview-video-end', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'})--}}
-    {{--      </script>--}}
-    {{--      @endscript--}}
-    {{--    @endif--}}
-
     <section class="pt-0">
       <div class="container">
         <div class="row g-lg-5">
-          <!-- Main content START -->
           <div class="col-lg-8">
 
             <div class="row g-4">
-
-              <!-- Course title START -->
               <div class="col-12">
 
-
-                <!-- Title -->
                 <h1>{{$currentCourse->name}}</h1>
                 @if($currentClass && $currentSection)
                   <h3 class="text-dark">{{$currentSection->name.' - '.$currentClass->name}}</h3>
                   <small class="text-primary">
                     {{$currentCourse->getCompletedFullDescriptionCurrentUser()}}
                   </small>
-
                   @php
                     $stats = $currentCourse->getCompletedStatistics(\Illuminate\Support\Facades\Auth::id());
-//                    dd($stats);
                   @endphp
                   <div class="progress progress-sm bg-warning bg-opacity-15">
                     <div class="progress-bar {{$stats['courseCompletePercent'] == 100 ? 'bg-success' : 'bg-primary'}}"
@@ -105,22 +70,12 @@
 
                 <!-- Content -->
                 <ul class="list-inline mb-5 mt-5">
-                  {{--                  <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>--}}
                   <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i
                       class="fas fa-user-graduate text-success me-2"></i>{{$currentCourse->enrolledCount()}} @lang('Enrolled')
                   </li>
                   <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i
                       class="fas fa-signal text-success me-2"></i>{{$currentCourse->level ? $currentCourse->level->description: __('All levels')}}
                   </li>
-
-                  {{--                  @if($currentClass->document)--}}
-                  {{--                    <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i--}}
-                  {{--                        class="bi bi-cloud-arrow-down text-warning"></i>--}}
-                  {{--                      <a href="{{VinLiveWireHelper::downloadUrlPresigned($currentClass->document, false)}}"--}}
-                  {{--                         class="d-inline-block ms-2 mb-0 h6" target="_blank">@lang('Download Document')</a>--}}
-                  {{--                    </li>--}}
-                  {{--                  @endif--}}
-
                   @if($currentClass->file)
                     <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="bi bi-download text-warning"></i>
                       <a href="{{VinLiveWireHelper::downloadUrlPresigned($currentClass->file, false)}}"
@@ -130,14 +85,11 @@
 
                 </ul>
               </div>
-              <!-- Course title END -->
 
               <div class="separator my-5"></div>
 
-              <!-- Instructor detail START -->
               <div class="col-12">
                 <div class="d-sm-flex justify-content-sm-between align-items-center">
-                  <!-- Avatar detail -->
                   @if($currentCourse->instructor)
                     <div class="d-flex align-items-center">
                       <!-- Avatar image -->
@@ -159,26 +111,11 @@
 
                   <!-- Button -->
                   <div class="d-flex mt-2 mt-sm-0">
-                    {{--                    <a class="btn btn-danger-soft btn-sm mb-0" href="#">Follow</a>--}}
-                    <!-- Share button with dropdown -->
                     <div class="dropdown ms-2">
-                      {{--                      <a href="#" class="btn btn-sm mb-0 btn-info-soft small" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">--}}
-                      {{--                        share--}}
-                      {{--                      </a>--}}
-                      <!-- dropdown button -->
-                      {{--                      <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">--}}
-                      {{--                        <li><a  class="dropdown-item" href="#"><i class="fab fa-twitter-square me-2"></i>Twitter</a></li>--}}
-                      {{--                        <li><a class="dropdown-item" href="#"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>--}}
-                      {{--                        <li><a class="dropdown-item" href="#"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>--}}
-                      {{--                        <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Copy link</a></li>--}}
-                      {{--                      </ul>--}}
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- Instructor detail END -->
-
-              <!-- Course detail START -->
               <div class="col-12">
                 <!-- Tabs START -->
                 <ul class="nav nav-tabs nav-line-tabs" id="course-pills-tab" role="tablist">
@@ -204,22 +141,8 @@
                             data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1"
                             aria-selected="true">@lang('Course Overview')</button>
                   </li>
-                  {{--                  <!-- Tab item -->--}}
-                  {{--                                    <li class="nav-item me-2 me-sm-4" role="presentation">--}}
-                  {{--                                      <button class="nav-link mb-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Reviews</button>--}}
-                  {{--                                    </li>--}}
-                  {{--                  <!-- Tab item -->--}}
-                  {{--                  <li class="nav-item me-2 me-sm-4" role="presentation">--}}
-                  {{--                    <button class="nav-link mb-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">FAQs </button>--}}
-                  {{--                  </li>--}}
-                  {{--                  <!-- Tab item -->--}}
-                  {{--                  <li class="nav-item me-2 me-sm-4" role="presentation">--}}
-                  {{--                    <button class="nav-link mb-0" id="course-pills-tab-4" data-bs-toggle="pill" data-bs-target="#course-pills-4" type="button" role="tab" aria-controls="course-pills-4" aria-selected="false">Comment</button>--}}
-                  {{--                  </li>--}}
                 </ul>
-                <!-- Tabs END -->
 
-                <!-- Tab contents START -->
                 <div class="tab-content pt-4 px-3" id="course-pills-tabContent">
                   @if($currentClass->document)
                     <div class="tab-pane fade show active" id="course-document-pills-2" role="tabpanel"
@@ -245,8 +168,8 @@
                   <div class="tab-pane fade show {{$currentClass->document ? '' : 'active'}}" id="course-class-pills-2"
                        role="tabpanel"
                        aria-labelledby="course-class-tab-2">
-                    @if($currentCourse->staticPage->isSummerNote())
-                      {!! $currentCourse->staticPage->content !!}
+                    @if($currentClass->staticPage->isSummerNote())
+                      {!! $currentClass->staticPage->content !!}
                     @else
                       <div id="vineditorjs-class" wire:ignore></div>
                     @endif
@@ -261,14 +184,10 @@
                       <div id="vineditorjs" wire:ignore></div>
                     @endif
                   </div>
-
                 </div>
-                <!-- Tab contents END -->
               </div>
-              <!-- Course detail END -->
             </div>
           </div>
-          <!-- Main content END -->
 
           <!-- Right sidebar START -->
           <div class="col-lg-4">
@@ -285,7 +204,7 @@
                   <!-- Accordion START -->
                   <h3 class="text-secondary">@lang('Classes')</h3>
                   <div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
-                    @foreach($currentCourse->sections->sortBy('sort_order')->values() as $sec)
+                    @foreach($currentCourse->sectionsActive->sortBy('sort_order')->values() as $sec)
                       @php
                         $classesCount = $sec->classes->count();
                         $classesCompletedCount = $sec->getCompletedClassCountForCurrentUser();
@@ -330,19 +249,32 @@
                               </div>
                               <hr>
 
+                              @php
+                                $prevHasNoVideo = false;
+                                $prevClId = null;
+                              @endphp
+
                               @foreach($sec->classes->sortBy('sort_order')->values() as $cl)
                                 @php
                                   $isClasCompleted = $cl->isCompletedByCurrentUser();
                                   $isPlaying = $cl->id == $classId;
                                   $isPlayingClass = $isPlaying ? 'text-primary' : ($isClasCompleted ? 'text-success' : '');
+                                  $isBlockNext = ($currentCourse->block_next_class && ($cl->sort_order >= $nextClass?->sort_order));
+                                  $isCurrentSection = $cl->course_section_id == $currentSection?->id;
+                                  $nextClassHasNoVideo = ((!$nextClass?->hasVideo()) && $nextClass?->id == $cl->id);
+                                  $enableLink = ((!$isBlockNext) && ($isCurrentSection)) || ($isClasCompleted) || ($nextClassHasNoVideo || ($prevHasNoVideo && $prevClId == $currentClass?->id));
                                 @endphp
                                 <div class="d-flex justify-content-between align-items-center">
                                   <div class="position-relative d-flex align-items-center">
-                                    <a
-                                      href="{{route($watchRouteName, ['courseId' => $currentCourse->id, 'sectionId' => $sec->id, 'classId' => $cl->id])}}"
-                                      class="mb-0 stretched-link position-static">
-                                      <i class="fas fa-play me-0 {{$isPlayingClass}}"></i>
-                                    </a>
+                                    {{--                                    @dump($isBlockNext, $isClasCompleted)--}}
+                                    @if($enableLink)
+                                      <a
+                                        href="{{route($watchRouteName, ['courseId' => $currentCourse->id, 'sectionId' => $sec->id, 'classId' => $cl->id])}}"
+                                        class="mb-0 stretched-link position-static">
+                                        <i class="fas fa-play me-0 {{$isPlayingClass}}"></i>
+                                      </a>
+                                    @endif
+
                                     @if($isClasCompleted)
                                       <span class="d-inline-block {{$isPlayingClass}} ms-2 mb-0 h6 fw-light">
                                         {{$cl->name}}
@@ -355,6 +287,10 @@
                                   </div>
                                   {{--                                <p class="mb-0 text-truncate">2m 10s</p>--}}
                                 </div>
+                                @php
+                                  $prevHasNoVideo = (!$cl->hasVideo());
+                                  $prevClId = $cl->id;
+                                @endphp
                               @endforeach
                             </div>
                           </div>
@@ -365,7 +301,7 @@
 
                   <h3 class="text-secondary mt-5">@lang('Quizzes')</h3>
                   <div class="accordion accordion-icon accordion-bg-light" id="accordionQuizzes">
-                    @foreach($currentCourse->sections as $sec)
+                    @foreach($currentCourse->sectionsActive as $sec)
                       @php
                         $quizzesCount = $sec->quizzes->count();
                         $completedQuizzesCount = $sec->getCompletedQuizCountCurrentUser();
@@ -376,7 +312,6 @@
                       @if($quizzesCount == 0)
                         @continue
                       @endif
-
 
                       <div class="accordion-item mb-3">
                         <h6 class="accordion-header font-base" id="heading-1">
@@ -418,17 +353,18 @@
                               @foreach($sec->quizzes as $qz)
                                 @php
                                   $isQuizCompleted = $qz->isCompletedByCurrentUser();
+                                  $enableQuizLink = ($currentCourse->block_next_class && $currentCourse->completedAllClasses(Auth::id())) || $isQuizCompleted;
                                 @endphp
-
 
                                 <div class="d-flex justify-content-between align-items-center">
                                   <div class="position-relative d-flex align-items-center">
-                                    <a href="{{route($quizAssesmentRouteName, ['quizId' => $qz->id])}}"
-                                       class="mb-0 stretched-link position-static {{$isQuizCompleted ? 'text-success' : ''}}">
-                                      <i class="fas fa-play me-0 {{$isQuizCompleted ? 'text-success' : ''}}"></i>
-                                    </a>
+                                    @if($enableQuizLink)
+                                      <a href="{{route($quizAssesmentRouteName, ['quizId' => $qz->id])}}"
+                                         class="mb-0 stretched-link position-static {{$isQuizCompleted ? 'text-success' : ''}}">
+                                        <i class="fas fa-play me-0 {{$isQuizCompleted ? 'text-success' : ''}}"></i>
+                                      </a>
+                                    @endif
 
-                                    {{--                                    @dd($isQuizCompleted)--}}
                                     @if($isQuizCompleted)
                                       <span class="d-inline-block text-success ms-2 mb-0 h6 fw-light">
                                         {{$qz->name}} ({{$qz->type?->name}})
@@ -438,7 +374,6 @@
                                       <span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light">{{$qz->name}} ({{$qz->type?->name}})</span>
                                     @endif
                                   </div>
-                                  {{--                                <p class="mb-0 text-truncate">2m 10s</p>--}}
                                 </div>
                               @endforeach
                             </div>
@@ -464,14 +399,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="nextVideoModalLabel">@lang('Watch next')</h1>
-          <button id="modal-close-btn" type="button" class="btn-close" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
+          {{--          <button id="modal-close-btn" type="button" class="btn-close" data-bs-dismiss="modal"--}}
+          {{--                  aria-label="Close"></button>--}}
         </div>
         <div class="modal-body">
           @if($nextSectionId && $nextClassId)
             <h3>{{$nextClass->getClassFullDescription()}}</h3>
           @else
             <h3>@lang('Congratulations you have finished watching all classes')</h3>
+            <div class="hstack gap-3">
+              <div class="ms-auto"></div>
+              <a class="btn btn-primary" href="javascript:window.location.reload(true)">@lang('Ok')</a>
+              <div class="ms-auto"></div>
+            </div>
           @endif
         </div>
         <div class="modal-footer">
@@ -494,174 +434,87 @@
   <link rel="stylesheet" type="text/css" href="{{asset('lms/assets/vendor/font-awesome/css/all.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('lms/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('lms/assets/vendor/choices/css/choices.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('lms/assets/vendor/aos/aos.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('lms/assets/vendor/plyr/plyr.css')}}"/>
-
-  <!-- Theme CSS -->
-  {{--  <link rel="stylesheet" type="text/css" href="{{asset('lms/assets/css/style.css')}}">--}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.min.css">
 @endpush
 
 @if($courseId && $sectionId && $classId)
   @push('scripts')
-    @if($currentClass?->use_link)
-      {{--      <div id="vin-video-plyr" data-plyr-provider="{{$currentClass->video_provider}}"--}}
-      {{--           data-plyr-embed-id="{{$currentClass->video_id}}">--}}
-      {{--        {!! $currentClass->link !!}--}}
-      {{--      </div>--}}
+    <script src="{{asset('lms/assets/vendor/choices/js/choices.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.min.js"></script>
 
-      <script>
-        // 2. This code loads the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
+    <script>
+      const secondsToMinSecPadded = (time) => {
+        const minutes = `${Math.floor(time / 60)}`.padStart(2, "0");
+        const seconds = `${time - minutes * 60}`.padStart(2, "0");
+        return `${minutes}:${seconds}`;
+      };
 
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // 3. This function creates an <iframe> (and YouTube player)
-        //    after the API code downloads.
-        var player;
-
-        function onYouTubeIframeAPIReady() {
-          player = new YT.Player('vin-yt-player', {
-            height: '600',
-            width: '100%',
-            videoId: '{{VinStrHelper::extractYoutubeVideId($currentClass->link)}}',
-            autoplay: true,
-            playerVars: {
-              'playsinline': 1
-            },
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
-            }
-          });
-        }
-
-        // 4. The API will call this function when the video player is ready.
-        function onPlayerReady(event) {
-          fetch('{{route('admin-lms-course-preview-video-start', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'});
-          event.target.playVideo();
-        }
-
-        // 5. The API calls this function when the player's state changes.
-        //    The function indicates that when playing a video (state=1),
-        //    the player should play for six seconds and then stop.
-        var done = false;
-
+      document.addEventListener('DOMContentLoaded', () => {
         let secId = '{{$nextSectionId}}';
         let classId = '{{$nextClassId}}';
         const isCurrentPlaying = secId && classId;
-
-        function onPlayerStateChange(event) {
-          console.log('onPlayerStateChange: ', event.data);
-          if (event.data == 0) {
-            // -1 – unstarted
-            // 0 – ended
-            // 1 – playing
-            // 2 – paused
-            // 3 – buffering
-            // 5 – video cued
-
-            const myModal = new bootstrap.Modal('#nextVideoModal');
-            myModal.show();
-
-            fetch('{{route('admin-lms-course-preview-video-end', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'})
-              .then((r) => {
-                let secs = 10;
-                if (isCurrentPlaying) {
-                  interval = setInterval((v) => {
-                    document.getElementById("vCounter").innerHTML = secs + 's';
-                    secs -= 1;
-                  }, 1000);
-
-                  setTimeout(() => {
-                    clearInterval(interval);
-                    if (!canceledNext) {
-                      window.location = '{{route($watchRouteName, ['courseId' => $courseId, 'sectionId' => $nextSectionId, 'classId' => $nextClassId])}}';
-                    }
-                  }, 10000);
-
-                  $('#modal-close-btn').on('click', function (e) {
-                    canceledNext = true;
-                  });
-                }
-              });
-          }
-
-          // switch (player.getPlayerState()){
-          //
-          // }
-          // if (event.data == YT.PlayerState.PLAYING && !done) {
-          //   setTimeout(stopVideo, 6000);
-          //   done = true;
-          // }
+        var interval;
+        var canceledNext = false;
+        let isBlockSeek = '{{$currentCourse->block_next_class}}';
+        let ishideProgress = '{{$currentClass->hide_video_progress}}';
+        let videoControls = ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'];
+        if(ishideProgress == 1){
+          videoControls = ['play', 'current-time', 'mute', 'volume', 'fullscreen'];
         }
 
-        function stopVideo() {
-          player.stopVideo();
-        }
-      </script>
+        var timeTracking = {
+          watchedTime: 0,
+          currentTime: 0
+        };
+        var lastUpdated = 'currentTime';
 
-    @else
-      <script src="{{asset('lms/assets/vendor/choices/js/choices.min.js')}}"></script>
-      <script src="{{asset('lms/assets/vendor/aos/aos.js')}}"></script>
-      <script src="{{asset('lms/assets/vendor/plyr/plyr.js')}}"></script>
-
-      <!-- Template Functions -->
-      <script src="{{asset('lms/assets/js/functions.js')}}"></script>
-
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          // window.vinPlayer = new Plyr('#vin-video-plyr');
-          const player = document.querySelector("#vin-video-plyr");
-          let secId = '{{$nextSectionId}}';
-          let classId = '{{$nextClassId}}';
-          const isCurrentPlaying = secId && classId;
-          var interval;
-          var canceledNext = false;
-
-          player.addEventListener('play', function (e) {
-            // console.log('played sdfsdfsd')
-            fetch('{{route('admin-lms-course-preview-video-start', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'});
-          });
-
-          player.addEventListener('ended', function (e) {
-            const myModal = new bootstrap.Modal('#nextVideoModal');
-            myModal.show();
-
-            fetch('{{route('admin-lms-course-preview-video-end', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'})
-              .then((r) => {
-                let secs = 10;
-                if (isCurrentPlaying) {
-                  interval = setInterval((v) => {
-                    document.getElementById("vCounter").innerHTML = secs + 's';
-                    secs -= 1;
-                  }, 1000);
-
-                  setTimeout(() => {
-                    clearInterval(interval);
-                    if (!canceledNext) {
-                      window.location = '{{route($watchRouteName, ['courseId' => $courseId, 'sectionId' => $nextSectionId, 'classId' => $nextClassId])}}';
-                    }
-                  }, 10000);
-
-                  $('#modal-close-btn').on('click', function (e) {
-                    canceledNext = true;
-                  });
-                }
-              });
-          });
-
-          // player.addEventListener('timeupdate', function(e) {
-          //   console.log(e); // if we need to log how long it was watched
-          // });
-
-          if (isCurrentPlaying) {
-            player.play();
-          }
+        const player = new Plyr('#vin-video-plyr', {
+          controls: videoControls,
+          autoplay: true
         });
-      </script>
-    @endif
+
+        player.on('play', (e) => {
+          fetch('{{route('admin-lms-course-preview-video-start', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'});
+        });
+
+        player.on('ended', (e) => {
+          const myModal = new bootstrap.Modal('#nextVideoModal');
+          myModal.show();
+
+          fetch('{{route('admin-lms-course-preview-video-end', ['courseId' => $courseId, 'sectionId' => $sectionId, 'classId' => $classId])}}', {method: 'GET'})
+            .then((r) => {
+              let secs = 10;
+              if (isCurrentPlaying) {
+                interval = setInterval((v) => {
+                  document.getElementById("vCounter").innerHTML = secs + 's';
+                  secs -= 1;
+                }, 1000);
+
+                setTimeout(() => {
+                  clearInterval(interval);
+                  if (!canceledNext) {
+                    window.location = '{{route($watchRouteName, ['courseId' => $courseId, 'sectionId' => $nextSectionId, 'classId' => $nextClassId])}}';
+                  }
+                }, 10000);
+
+                $('#modal-close-btn').on('click', function (e) {
+                  canceledNext = true;
+                });
+              }
+            });
+        });
+
+        player.on('timeupdate', () => {
+          const timeFmt = secondsToMinSecPadded(parseInt(player.duration - player.currentTime));
+          $('#count-down').text(timeFmt);
+        });
+
+        if (isCurrentPlaying) {
+          player.play();
+        }
+      });
+    </script>
   @endpush
 @endif
 
