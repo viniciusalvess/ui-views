@@ -91,22 +91,22 @@
     @canany([USERS_CREATE_PERM, USERS_UPDATE_PERM])
       <x-field-separator label="User Lookup Types"/>
       <x-field-container>
-        <div class="col">
+        <div class="col role-checkbox-1">
           <x-checkbox-field name="user.instructor" label="Instructor"/>
         </div>
-        <div class="col">
+        <div class="col role-checkbox-2">
           <x-checkbox-field name="user.is_student" label="Student"/>
         </div>
-        <div class="col">
+        <div class="col role-checkbox-3">
           <x-checkbox-field name="user.is_staff" label="Staff"/>
         </div>
-        <div class="col">
+        <div class="col role-checkbox-4">
           <x-checkbox-field name="user.is_member" label="Member"/>
         </div>
-        <div class="col">
+        <div class="col role-checkbox-5">
           <x-checkbox-field name="user.is_ecom_client" label="Ecommerce Client"/>
         </div>
-        <div class="col">
+        <div class="col role-checkbox-6">
           <x-checkbox-field name="user.is_job_post" label="Job Post"/>
         </div>
       </x-field-container>
