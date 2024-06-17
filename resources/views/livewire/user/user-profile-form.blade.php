@@ -41,7 +41,7 @@
         <x-checkbox-field name="user.inactive" label="Inactive"/>
       </div>
     </x-field-container>
-
+    <br><br>
     <x-field-separator label="Personal Documents"/>
     <x-field-container>
       <div class="col">
@@ -87,7 +87,7 @@
         <x-select-simple-field label="Country" name="user.country" required="false" :items="$countries"/>
       </div>
     </x-field-container>
-
+    <br><br><br><br>
     @canany([USERS_CREATE_PERM, USERS_UPDATE_PERM])
       <x-field-separator label="User Lookup Types"/>
       <x-field-container>
@@ -111,17 +111,23 @@
         </div>
       </x-field-container>
 
-      <x-field-separator label="Permission Roles"/>
-      <x-select-multiple-field label="Roles" name="rolesSelectedDto" required="false" :items="$rolesDto"/>
+      <br><br>
 
-      <x-field-separator label="Associations"/>
-      <x-field-container>
-        <div class="col">
+      <div class="row">
+        <div class="col-6">
+        <x-field-separator label="Permission Roles"/>
+        <x-select-multiple-field label="Roles" name="rolesSelectedDto" required="false" :items="$rolesDto"/>
+        </div>
+
+        <div class="col-6">
+          <x-field-separator label="Associations"/>
           <x-select-simple-field label="Employer" name="user.employer_id" required="false" :items="$employers"/>
         </div>
-      </x-field-container>
-    @endcanany
+      </div>
 
+      <br><br>
+
+    @endcanany
     <x-field-separator label="Other"/>
     <x-field-container>
       <div class="col">
@@ -146,6 +152,7 @@
     <x-select-multiple-field label="Flags" name="flagsSelectedDto" required="false" :items="$flags"/>
 
     @if(\Illuminate\Support\Facades\Auth::user()->super_admin)
+      <br><br><br><br>
       <x-field-separator label="Super Admin"/>
       <x-field-container>
         <x-date-field name="user.paid_thru" label="Paid Thru"/>
@@ -165,5 +172,5 @@
     @endif
   </div>
   <x-submit-field/>
-    <x-submit-feedback/>
+  <x-submit-feedback/>
 </form>
