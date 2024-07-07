@@ -1,0 +1,50 @@
+{
+	"title": "Pilar Treinamentos",
+  "keywords": "LMS Learning Management Systems Curses Learning Platform",
+  "description": "Pilar Treinamentos",
+  "author": "Vinicius A. Da Silva",
+  "service": {
+    "title": "Services",
+    "description": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT",
+    "items": [
+      { "title":  "CUSTOMER SUPPORT", "icon":  "icons icon-support text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."},
+      { "title":  "SLIDERS", "icon":  "icons icon-layers text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."},
+      { "title":  "BUTTONS", "icon":  "icons icon-menu text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."},
+      { "title":  "HTML5 / CSS3 / JS", "icon":  "icons icon-doc text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."},
+      { "title":  "ICONS", "icon":  "icons icon-user text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."},
+      { "title":  "LIGHTBOX", "icon":  "icons icon-screen-desktop text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."}
+    ]
+  },
+  "project": {
+    "title": "Projects",
+    "description": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus suscipit molestie vestibulum.",
+    "items": [
+      { "title": "Presentation", "icon":  "", "description":  "Brand", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png","url": "https://certifylms.com/" },
+      { "title": "Identity", "icon":  "", "description":  "Sofware", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png","url": "https://certifylms.com/" },
+      { "title": "Watch", "icon":  "", "description":  "Social", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png","url": "https://certifylms.com/" },
+      { "title": "Video", "icon":  "", "description":  "Design", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png","url": "https://certifylms.com/" }
+    ]
+  },
+  "testimonial": {
+    "title": "We’re excited about Porto Template",
+    "description": "30,000 CUSTOMERS IN 100 COUNTRIES USE PORTO TEMPLATE. MEET OUR CUSTOMERS.",
+    "image": "frontend/templates/template-1/img/bg-one-page-1-1.jpg",
+    "customers": [
+      { "title": "John Smith", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"},
+      { "title": "John Smith 1", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"},
+      { "title": "John Smith 2", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"},
+      { "title": "John Smith 3", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"}
+    ],
+    "items": [
+      { "title": "John Smith", "icon":  "", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"},
+      { "title": "Jane Smith", "icon":  "", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"},
+      { "title": "Sam Smith", "icon":  "", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"},
+      { "title": "Ed Smith", "icon":  "", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum", "image": "https://certifylms.com/themes/block/assets/images/vectors/hero.png"}
+    ]
+  },
+  "product": {
+    "title": "PRINCIPAIS CURSOS",
+    "description": ""
+  }
+}
