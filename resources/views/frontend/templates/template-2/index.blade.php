@@ -226,9 +226,7 @@
           Cursos
         </a>
       </li>
-      @guest
-      <li class="nav-item"><a class="nav-link" href="{{ route('shop-login') }}"><i class="bi bi-door-open me-2"></i>@lang('Login')</a></li>
-      @endguest
+
     </ul>
   </nav>
 </div>
