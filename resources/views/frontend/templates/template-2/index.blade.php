@@ -22,7 +22,10 @@
   <meta name="author" content="{{$templateData->author}}">
 
   <!-- Favicon -->
+  <!--
   <link rel="shortcut icon" href="{{templateAsset('frontend/templates/template-1/img/favicon.ico')}}"
+  -->
+  <link rel="shortcut icon" href="https://d3j50bikzu4vbt.cloudfront.net/codice/1/U4YdBLNYiIeaj49cyf14pDVA7EcTE9VHYIlbJKhX.png"
         type="image/x-icon"/>
   <link rel="apple-touch-icon" href="{{templateAsset('frontend/templates/template-1/img/apple-touch-icon.png')}}">
 
@@ -153,9 +156,9 @@
               <div class="header-logo header-logo-sticky-change">
                 <a href="index.html">
 
-                  <img class="header-logo-sticky opacity-0" alt="Porto" /*width="100" height="48" data-sticky-width="89"*/
+                  <img class="header-logo-sticky opacity-0" alt="Porto"  width="auto" height="48" data-sticky-width="89"
                        data-sticky-height="43" data-sticky-top="88" src="{{$logoDarkUrl}}">
-                  <img class="header-logo-non-sticky opacity-0" alt="Porto" /*width="100" height="48"*/
+                  <img class="header-logo-non-sticky opacity-0" alt="Porto"  width="auto" height="48"
                        src="{{$logoLightUrl}}">
                 </a>
               </div>
@@ -224,6 +227,11 @@
       <li class="dropdown dropdown-full-color dropdown-light">
         <a class="dropdown-item dropdown-toggle" href="/shop/products">
           Cursos
+        </a>
+      </li>
+      <li class="dropdown dropdown-full-color dropdown-light">
+        <a class="dropdown-item dropdown-toggle" href="#contato">
+          Contato
         </a>
       </li>
 
@@ -707,8 +715,8 @@
         </div>
       </div>
     </section>
---><!--
-    <section class="section bg-primary border-0 m-0">
+-->
+    <section class="section bg-quaternary border-0 m-0 d-none">
       <div class="container">
         <div class="row justify-content-center text-center text-lg-left py-4">
           <div class="col-lg-auto appear-animation" data-appear-animation="fadeInRightShorter">
@@ -770,8 +778,50 @@
           </div>
         </div>
       </div>
-    </section>-->
+    </section>
   </div>
+
+
+        <div class="container" id="contato">
+          	<div class="row mb-5">
+						<div class="col-lg-4">
+
+							<div class="overflow-hidden mb-3">
+								<h4 class="pt-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200" data-plugin-options="{'accY': -200}">Entre em <strong>Contato</strong></h4>
+							</div>
+							<div class="overflow-hidden mb-3 d-none">
+								<p class="lead text-4 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="400" data-plugin-options="{'accY': -200}">Para qualquer informação, dúvida ou comentário, por favor ligue ou envie mensagem pelo WhatsApp.</p>
+							</div>
+							<div class="overflow-hidden">
+								<p class="mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="600" data-plugin-options="{'accY': -200}">Para qualquer informação, dúvida ou comentário, por favor ligue ou envie mensagem pelo WhatsApp.</p>
+							</div>
+
+						</div>
+						<div class="col-lg-4 offset-lg-1 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="800" data-plugin-options="{'accY': -200}">
+
+							<h4 class="pt-5">Nosso <strong>Escritório</strong></h4>
+							<ul class="list list-icons list-icons-style-3 mt-2">
+								<li><i class="fas fa-phone top-6"></i> <strong>Telefones:</strong> (22) 9 9893 4813</li>
+								<li><i class="fas fa-envelope top-6"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">pilarassessor@gmail.com</a></li>
+								<li><i class="fas fa-map-marker-alt top-6"></i> <strong>Endereço:</strong> Rua Armando Freire Pinheiro Nº 84, Antiga Rua W8 - Mirante da Lagoa - Macaé - Rio de Janeiro - CEP: 27925070</li>
+							</ul>
+
+						</div>
+						<div class="col-lg-3 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="1000" data-plugin-options="{'accY': -200}">
+
+							<h4 class="pt-5">Horário de  <strong>Atendimento</strong></h4>
+							<ul class="list list-icons list-dark mt-2">
+								<li><i class="far fa-clock top-6"></i> Segunda - Sexta - 8:00 às 17:00</li>
+								<li><i class="far fa-clock top-6"></i> Sábado - 8:00 às 12:00</li>
+								<li><i class="far fa-clock top-6"></i> Domingo - Fechado</li>
+							</ul>
+
+						</div>
+					</div>
+        </div>
+
+
+
 
   <footer id="footer" class="mt-0">
     <div class="footer-copyright">
