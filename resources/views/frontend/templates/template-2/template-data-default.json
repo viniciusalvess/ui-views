@@ -4,8 +4,8 @@
   "description": "Pilar Treinamentos",
   "author": "Vinicius A. Da Silva",
   "service": {
-    "title": "Services",
-    "description": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT",
+    "title": "Serviços",
+    "description": "",
     "items": [
       { "title":  "CUSTOMER SUPPORT", "icon":  "icons icon-support text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."},
       { "title":  "SLIDERS", "icon":  "icons icon-layers text-color-light", "description":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla."},

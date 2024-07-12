@@ -25,9 +25,17 @@
   <!--
   <link rel="shortcut icon" href="{{templateAsset('frontend/templates/template-1/img/favicon.ico')}}"
   -->
-  <link rel="shortcut icon" href="https://d3j50bikzu4vbt.cloudfront.net/codice/1/U4YdBLNYiIeaj49cyf14pDVA7EcTE9VHYIlbJKhX.png"
-        type="image/x-icon"/>
-  <link rel="apple-touch-icon" href="{{templateAsset('frontend/templates/template-1/img/apple-touch-icon.png')}}">
+
+  @php
+    $fav = \Vinsystems\DataPersistence\Models\SystemSetting::instance()->favicon;
+  @endphp
+  @if($fav)
+    <link rel="shortcut icon" href="{{VinLiveWireHelper::downloadUrl($fav, true)}}"/>
+  @else
+    <link rel="shortcut icon" href="{{asset('assets/media/vinsystems/favicon.ico')}}"/>
+   @endif
+
+
 
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
@@ -77,7 +85,14 @@
   <link rel="stylesheet" href="{{templateAsset('frontend/templates/template-1/css/custom.css')}}"></link>
 
   <script src="{{templateAsset('frontend/templates/template-1/vendor/modernizr/modernizr.min.js')}}"></script>
-
+  <style>
+        .custom-img-size {
+        width: auto !important; /* Defina a largura desejada */
+        height: 60px; /* Defina a altura desejada */
+        object-fit: contain;; /* Mantém o aspecto das imagens enquanto as redimensiona */
+          padding: 0px 30px;
+    }
+  </style>
 </head>
 <body class="loading-overlay-showing" data-plugin-page-transition data-loading-overlay
       data-plugin-options="{'hideDelay': 500}">
@@ -219,16 +234,18 @@
           Início
         </a>
       </li>
-      <li class="dropdown dropdown-full-color dropdown-light dropdown-mega">
-        <a class="dropdown-item dropdown-toggle" href="#services">
-          Serviços
-        </a>
-      </li>
+
       <li class="dropdown dropdown-full-color dropdown-light">
         <a class="dropdown-item dropdown-toggle" href="/shop/products">
           Cursos
         </a>
       </li>
+      <!--
+      <li class="dropdown dropdown-full-color dropdown-light dropdown-mega">
+        <a class="dropdown-item dropdown-toggle" href="#services">
+          Serviços
+        </a>
+      </li>-->
       <li class="dropdown dropdown-full-color dropdown-light">
         <a class="dropdown-item dropdown-toggle" href="#contato">
           Contato
@@ -533,6 +550,42 @@
     <section id="services" class="section section-height-3 bg-primary border-0 m-0 appear-animation"
              data-appear-animation="fadeIn">
       <div class="container my-3">
+
+
+      <div class="row counters counters-sm py-4 mt-5">
+						<div class="col-sm-6 col-lg-3 mb-5 mb-lg-0">
+							<div class="counter">
+								<i class="icons icon-user text-color-light"></i>
+								<strong class="text-color-light font-weight-extra-bold" data-to="2020" data-append="+">0</strong>
+								<label class="text-4 text-color-light mt-1">Alunos capacitados</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-lg-3 mb-5 mb-lg-0">
+							<div class="counter">
+								<i class="icons icon-badge text-color-light"></i>
+								<strong class="text-color-light font-weight-extra-bold" data-to="5.816">0</strong>
+								<label class="text-4 text-color-light mt-1">Treinamentos ministrados</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-lg-3 mb-5 mb-sm-0">
+							<div class="counter">
+								<i class="icons icon-graph text-color-light"></i>
+								<strong class="text-color-light font-weight-extra-bold" data-to="69.040">0</strong>
+								<label class="text-4 text-color-light mt-1">Horas de treinamento ministradas</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-lg-3">
+							<div class="counter">
+								<i class="icons icon-cup text-color-light"></i>
+								<strong class="text-color-light font-weight-extra-bold" data-to="9.4">0</strong>
+								<label class="text-4 text-color-light mt-1">Média da satisfação de nossos alunos</label>
+							</div>
+						</div>
+					</div>
+
+
+
+       <!--
         <div class="row mb-5">
           <div class="col text-center appear-animation" data-appear-animation="fadeInUpShorter"
                data-appear-animation-delay="200">
@@ -558,8 +611,11 @@
             </div>
           @endforeach
         </div>
+        -->
       </div>
     </section>
+
+
 
 <!--
     @if(count($templateData->project->items) > 0)
@@ -781,34 +837,47 @@
     </section>
   </div>
 			<div class="container">
-				<div class="row py-4 my-5">
+				<div class="row py-4 my-5 justify-content-center">
+                  <h2 class="font-weight-bold mb-1">CLIENTES</h2>
 					<div class="col py-3">
 						<div class="owl-carousel owl-theme mb-0" data-plugin-options="{'responsive': {'0': {'items': 1}, '476': {'items': 1}, '768': {'items': 5}, '992': {'items': 7}, '1200': {'items': 7}}, 'autoplay': true, 'autoplayTimeout': 3000, 'dots': false}">
 							<div>
-								<img class="img-fluid" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/cUcTb1gGt2cYCexap1H6eMIaN8EJM8ABUWpADntY.webp" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/cUcTb1gGt2cYCexap1H6eMIaN8EJM8ABUWpADntY.webp" alt="">
 							</div>
 							<div>
-								<img class="img-fluid opacity-2" src="img/logos/logo-2.png" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/1Woo5qs42s8nUwkumW6g1iwlAGEG7fBry6lFKgMU.png" alt="">
 							</div>
 							<div>
-								<img class="img-fluid opacity-2" src="img/logos/logo-3.png" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/QERWw7nuxOfqL3ZkQIIDz7NdoueFQYh3zGyyPvIC.png" alt="">
 							</div>
 							<div>
-								<img class="img-fluid opacity-2" src="img/logos/logo-4.png" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/jFwjDEAI605lYegEMATf7NlbBvUC2uLcbHwtp6wF.jpg" alt="">
 							</div>
 							<div>
-								<img class="img-fluid opacity-2" src="img/logos/logo-5.png" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/vlYTdjpcStAPaOEbzbNJLnjvWbCtu0DSxoCLDZpN.png" alt="">
 							</div>
 							<div>
-								<img class="img-fluid opacity-2" src="img/logos/logo-6.png" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/znPBWhmsnE8Nx4T05i3ncUjXioxyZ29dJ4fPphXU.png" alt="">
 							</div>
 							<div>
-								<img class="img-fluid opacity-2" src="img/logos/logo-4.png" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/w5HpBDbyweL8NjedSYgzHcBTWZKRNmqBs0g06IX1.png" alt="">
 							</div>
 							<div>
-								<img class="img-fluid opacity-2" src="img/logos/logo-2.png" alt="">
+								<img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/vPZ6poRU983YwJFMuCoabee3XH1MtXToHx78mWLJ.png" alt="">
 							</div>
-						</div>
+                            <div>
+                                <img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/7ve8q9KXM3vVLCs92YsG1q5X3bXhOGvW2MMPHj4d.png" alt="">
+                            </div>
+                            <div>
+                                <img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/CB8FAuGW92R9bLsqmWgKfEVR1wbeWEXUJquB4UkL.png" alt="">
+                            </div>
+                            <div>
+                                <img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/5keBRJOjssnPqtq85lnXlrl4znobOJMRAlpzWFkK.png" alt="">
+                            </div>
+                            <div>
+                                <img class="img-fluid custom-img-size" src="https://d203srxv6bj3eh.cloudfront.net/codice/1/iRCkabPWwBRZzb8VwuGSW2g1mcnWvXBQPzEtrL9t.png" alt="">
+                            </div>
+                          </div>
 
 					</div>
 				</div>
