@@ -23,11 +23,11 @@
 
   <!-- Favicon -->
   <!--
-  <link rel="shortcut icon" href="{{templateAsset('frontend/templates/default/img/favicon.ico')}}"
+  <link rel="shortcut icon" href="{{templateAsset('assets-cdn/default/img/favicon.ico')}}"
   -->
   <link rel="shortcut icon" href="https://d3j50bikzu4vbt.cloudfront.net/codice/1/U4YdBLNYiIeaj49cyf14pDVA7EcTE9VHYIlbJKhX.png"
         type="image/x-icon"/>
-  <link rel="apple-touch-icon" href="{{templateAsset('frontend/templates/default/img/apple-touch-icon.png')}}">
+  <link rel="apple-touch-icon" href="{{templateAsset('assets-cdn/default/img/apple-touch-icon.png')}}">
 
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
@@ -38,45 +38,45 @@
     rel="stylesheet" type="text/css">
 
   <!-- Vendor CSS -->
-  <link href="{{templateAsset('frontend/templates/default//vendor/bootstrap/css/bootstrap.min.css')}}"
+  <link href="{{templateAsset('assets-cdn/default//vendor/bootstrap/css/bootstrap.min.css')}}"
         rel="stylesheet" type="text/css"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/fontawesome-free/css/all.min.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/fontawesome-free/css/all.min.css')}}"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/animate/animate.min.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/animate/animate.min.css')}}"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/simple-line-icons/css/simple-line-icons.min.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/simple-line-icons/css/simple-line-icons.min.css')}}"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/owl.carousel/assets/owl.carousel.min.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/owl.carousel/assets/owl.carousel.min.css')}}"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/owl.carousel/assets/owl.theme.default.min.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/owl.carousel/assets/owl.theme.default.min.css')}}"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/magnific-popup/magnific-popup.min.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/magnific-popup/magnific-popup.min.css')}}"></link>
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" href="{{templateAsset('frontend/templates/default/css/theme.css')}}"></link>
-  <link rel="stylesheet" href="{{templateAsset('frontend/templates/default/css/theme-elements.css')}}"></link>
-  <link rel="stylesheet" href="{{templateAsset('frontend/templates/default/css/theme-blog.css')}}"></link>
-  <link rel="stylesheet" href="{{templateAsset('frontend/templates/default/css/theme-shop.css')}}"></link>
+  <link rel="stylesheet" href="{{templateAsset('assets-cdn/default/css/theme.css')}}"></link>
+  <link rel="stylesheet" href="{{templateAsset('assets-cdn/default/css/theme-elements.css')}}"></link>
+  <link rel="stylesheet" href="{{templateAsset('assets-cdn/default/css/theme-blog.css')}}"></link>
+  <link rel="stylesheet" href="{{templateAsset('assets-cdn/default/css/theme-shop.css')}}"></link>
 
   <!-- Current Page CSS -->
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/rs-plugin/css/settings.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/rs-plugin/css/settings.css')}}"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/rs-plugin/css/layers.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/rs-plugin/css/layers.css')}}"></link>
   <link rel="stylesheet"
-        href="{{templateAsset('frontend/templates/default/vendor/rs-plugin/css/navigation.css')}}"></link>
+        href="{{templateAsset('assets-cdn/default/vendor/rs-plugin/css/navigation.css')}}"></link>
 
   <!-- Demo CSS -->
 
 
   <!-- Skin CSS -->
-  <link rel="stylesheet" href="{{templateAsset('frontend/templates/default/css/skins/default.css')}}"></link>
+  <link rel="stylesheet" href="{{templateAsset('assets-cdn/default/css/skins/default.css')}}"></link>
 
   <!-- Theme Custom CSS -->
-  <link rel="stylesheet" href="{{templateAsset('frontend/templates/default/css/custom.css')}}"></link>
+  <link rel="stylesheet" href="{{templateAsset('assets-cdn/default/css/custom.css')}}"></link>
 
-  <script src="{{templateAsset('frontend/templates/default/vendor/modernizr/modernizr.min.js')}}"></script>
+  <script src="{{templateAsset('assets-cdn/default/vendor/modernizr/modernizr.min.js')}}"></script>
 
 </head>
 <body class="loading-overlay-showing" data-plugin-page-transition data-loading-overlay
@@ -361,7 +361,7 @@
             @endforeach
 
             {{--							<li class="slide-overlay" data-transition="fade">--}}
-            {{--								<img src="{{templateAsset('frontend/templates/default/img/slides/slide-bg-2.jpg')}}"--}}
+            {{--								<img src="{{templateAsset('assets-cdn/default/img/slides/slide-bg-2.jpg')}}"--}}
             {{--									 alt=""--}}
             {{--									 data-bgposition="center center"--}}
             {{--									 data-bgfit="cover"--}}
@@ -373,7 +373,7 @@
             {{--									 data-y="center" data-voffset="['-50','-50','-50','-75']"--}}
             {{--									 data-start="1000"--}}
             {{--									 data-transform_in="x:[-300%];opacity:0;s:500;"--}}
-            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('frontend/templates/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
+            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('assets-cdn/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
 
             {{--								<div class="tp-caption text-color-light font-weight-normal"--}}
             {{--									 data-x="center"--}}
@@ -388,7 +388,7 @@
             {{--									 data-y="center" data-voffset="['-50','-50','-50','-75']"--}}
             {{--									 data-start="1000"--}}
             {{--									 data-transform_in="x:[300%];opacity:0;s:500;"--}}
-            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('frontend/templates/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
+            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('assets-cdn/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
 
             {{--								<div class="tp-caption font-weight-extra-bold text-color-light negative-ls-1"--}}
             {{--									 data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'--}}
@@ -408,7 +408,7 @@
 
             {{--							</li>--}}
             {{--							<li class="slide-overlay slide-overlay-primary" data-transition="fade">--}}
-            {{--								<img src="{{templateAsset('frontend/templates/default/img/slides/slide-bg-6.jpg')}}"--}}
+            {{--								<img src="{{templateAsset('assets-cdn/default/img/slides/slide-bg-6.jpg')}}"--}}
             {{--									 alt=""--}}
             {{--									 data-bgposition="center center"--}}
             {{--									 data-bgfit="cover"--}}
@@ -420,7 +420,7 @@
             {{--									 data-y="center" data-voffset="['-80','-80','-80','-130']"--}}
             {{--									 data-start="1000"--}}
             {{--									 data-transform_in="x:[-300%];opacity:0;s:500;"--}}
-            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('frontend/templates/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
+            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('assets-cdn/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
 
             {{--								<div class="tp-caption text-color-light font-weight-normal"--}}
             {{--									 data-x="center"--}}
@@ -435,7 +435,7 @@
             {{--									 data-y="center" data-voffset="['-80','-80','-80','-130']"--}}
             {{--									 data-start="1000"--}}
             {{--									 data-transform_in="x:[300%];opacity:0;s:500;"--}}
-            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('frontend/templates/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
+            {{--									 data-transform_idle="opacity:0.2;s:500;"><img src="{{templateAsset('assets-cdn/default/img/slides/slide-title-border.png')}}" alt=""></div>--}}
 
             {{--								<div class="tp-caption font-weight-extra-bold text-color-light"--}}
             {{--									 data-frames='[{"delay":1300,"speed":1000,"frame":"0","from":"opacity:0;x:-50%;","to":"opacity:0.7;x:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'--}}
@@ -876,44 +876,44 @@
 </div>
 
 <!-- Vendor -->
-<script src="{{templateAsset('frontend/templates/default/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/jquery.appear/jquery.appear.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/jquery.cookie/jquery.cookie.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/popper/umd/popper.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/common/common.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/jquery.appear/jquery.appear.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/jquery.cookie/jquery.cookie.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/popper/umd/popper.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/common/common.min.js')}}"></script>
 <script
-  src="{{templateAsset('frontend/templates/default/vendor/jquery.validation/jquery.validate.min.js')}}"></script>
+  src="{{templateAsset('assets-cdn/default/vendor/jquery.validation/jquery.validate.min.js')}}"></script>
 <script
-  src="{{templateAsset('frontend/templates/default/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/jquery.gmap/jquery.gmap.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/jquery.lazyload/jquery.lazyload.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/isotope/jquery.isotope.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+  src="{{templateAsset('assets-cdn/default/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/jquery.gmap/jquery.gmap.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/jquery.lazyload/jquery.lazyload.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/isotope/jquery.isotope.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
 <script
-  src="{{templateAsset('frontend/templates/default/vendor/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/vide/jquery.vide.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/vendor/vivus/vivus.min.js')}}"></script>
+  src="{{templateAsset('assets-cdn/default/vendor/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/vide/jquery.vide.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/vendor/vivus/vivus.min.js')}}"></script>
 
 <!-- Theme Base, Components and Settings -->
-<script src="{{templateAsset('frontend/templates/default/js/theme.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/js/theme.js')}}"></script>
 
 <!-- Current Page Vendor and Views -->
 <script
-  src="{{templateAsset('frontend/templates/default/vendor/rs-plugin/js/jquery.themepunch.tools.min.js')}}"></script>
+  src="{{templateAsset('assets-cdn/default/vendor/rs-plugin/js/jquery.themepunch.tools.min.js')}}"></script>
 <script
-  src="{{templateAsset('frontend/templates/default/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js')}}"></script>
-<script src="{{templateAsset('frontend/templates/default/js/views/view.contact.js')}}"></script>
+  src="{{templateAsset('assets-cdn/default/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/js/views/view.contact.js')}}"></script>
 
 <!-- Theme Custom -->
-<script src="{{templateAsset('frontend/templates/default/js/custom.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/js/custom.js')}}"></script>
 
 <!-- Theme Initialization Files -->
-<script src="{{templateAsset('frontend/templates/default/js/theme.init.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/js/theme.init.js')}}"></script>
 
 <!-- Examples -->
-<script src="{{templateAsset('frontend/templates/default/js/examples/examples.portfolio.js')}}"></script>
+<script src="{{templateAsset('assets-cdn/default/js/examples/examples.portfolio.js')}}"></script>
 
 <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
 <script>
@@ -944,7 +944,7 @@
 {{--				address: "New York, NY 10017",--}}
 {{--				html: "<strong>New York Office</strong><br>New York, NY 10017<br><br><a href='#' onclick='mapCenterAt({latitude: 40.75198, longitude: -73.96978, zoom: 16}, event)'>[+] zoom here</a>",--}}
 {{--				icon: {--}}
-{{--					image: "{{templateAsset('frontend/templates/default/img/pin.png')}}",--}}
+{{--					image: "{{templateAsset('assets-cdn/default/img/pin.png')}}",--}}
 {{--					iconsize: [26, 46],--}}
 {{--					iconanchor: [12, 46]--}}
 {{--				}--}}
