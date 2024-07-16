@@ -39,7 +39,7 @@
     rel="stylesheet" type="text/css">
 
   <!-- Vendor CSS -->
-  <link href="{{templateAsset('assets-cdn/default//vendor/bootstrap/css/bootstrap.min.css')}}"
+  <link href="{{templateAsset('assets-cdn/default/vendor/bootstrap/css/bootstrap.min.css')}}"
         rel="stylesheet" type="text/css"></link>
   <link rel="stylesheet"
         href="{{templateAsset('assets-cdn/default/vendor/fontawesome-free/css/all.min.css')}}"></link>
@@ -78,7 +78,7 @@
   <link rel="stylesheet" href="{{templateAsset('assets-cdn/default/css/custom.css')}}"></link>
 
 
-  <script src="{{templateAsset('frontend/templates/template-1/vendor/modernizr/modernizr.min.js')}}"></script>
+  <script src="{{templateAsset('assets-cdn/default/vendor/modernizr/modernizr.min.js')}}"></script>
   <style>
     .custom-img-size {
       width: auto !important; /* Defina a largura desejada */
