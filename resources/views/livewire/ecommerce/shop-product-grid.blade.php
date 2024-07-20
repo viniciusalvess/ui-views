@@ -1,4 +1,5 @@
 <div>
+  @if(\Vinsystems\DataPersistence\Models\App\SystemSettingGlobal::forSlugValue('show-shop-product-grid-header', '1'))
   <section class="py-0">
     <div class="container">
       <div class="row">
@@ -16,13 +17,12 @@
             <div class="row position-relative align-items-center">
               <div class="col-md-6 px-md-5">
                 <h1 class="mb-3">@lang('Welcome to our plataform!')</h1>
-                {{--                <p class="mb-3">Expand knowledge by reading book Two before narrow not relied on how except moment myself Dejection assurance. </p>--}}
 
                 <div class="input-group">
                   <input class="form-control border-0 me-1" wire:model.live.debounce.300s="search" type="search"
                          placeholder="{{__('Search')}}">
                   <button type="button" class="btn btn-primary mb-0 rounded" wire:loading.attr="disabled">
-                    @lang('Search')
+                    @lang('Search Course')
 
                     <div class="spinner-border spinner-border-sm" role="status" wire:loading>
                       <span class="visually-hidden">Loading...</span>
@@ -32,7 +32,9 @@
               </div>
 
               <div class="col-md-6 text-center">
-                <img src="{{asset('lms/assets/images/book/book-bg.svg')}}" alt="">
+
+             {{-- <img src="{{asset('lms/assets/images/book/book-bg.svg')}}" alt="">--}}
+                <img src="https://d3j50bikzu4vbt.cloudfront.net/codice/1/N7tebXT6EnMbXh9iAcXUpzZ1Ksn7h1MfLIrYVtan.png" alt="">
               </div>
             </div>
           </div>
@@ -40,80 +42,27 @@
       </div>
     </div>
   </section>
+  @endif
   <section class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="row mb-4 align-items-center">
 
+
             <div class="col-md-4">
               <h2 class="mb-0">@lang('All Products')</h2>
             </div>
-            {{--            <div class="col-md-4 mt-3 mt-xl-0">--}}
-            {{--              <form class="border-bottom p-2 input-borderless">--}}
-            {{--                <select class="js-choice">--}}
-            {{--                  <option value="">Product type</option>--}}
-            {{--                  <option>PDF</option>--}}
-            {{--                  <option>Compact Disk</option>--}}
-            {{--                  <option>Paperback</option>--}}
-            {{--                </select>--}}
-            {{--              </form>--}}
-            {{--            </div>--}}
-
-            <!-- Select option -->
-            {{--            <div class="col-md-4 mt-3 mt-xl-0">--}}
-            {{--              <form class="border-bottom p-2 input-borderless">--}}
-            {{--                <select class="js-choice">--}}
-            {{--                  <option value="">Select category</option>--}}
-            {{--                  <option>Software</option>--}}
-            {{--                  <option>Finance</option>--}}
-            {{--                  <option>Web design</option>--}}
-            {{--                  <option>Web Development</option>--}}
-            {{--                  <option>Information technology</option>--}}
-            {{--                  <option>Science</option>--}}
-            {{--                </select>--}}
-            {{--              </form>--}}
-            {{--            </div>--}}
-
+            <div class="col-md-8 text-end">
+              <a href="{{route('shop-products-filter')}}">
+                @lang('Filter Products') <i class="bi bi-funnel text-primary"></i>
+              </a>
+            </div>
           </div>
 
           <div class="row g-4">
             @forelse($products as $p)
-              {{--              @dd($p->pictureUrl())--}}
-              <div class="col-sm-6 col-lg-4 col-xl-3">
-                <div class="card shadow h-100">
-                  <a href="{{route('shop-product-details', ['slug' => $p->slug])}}">
-                    <div class="position-relative">
-                      <img src="{{$p->mainPictureUrl()}}" class="card-img-top"
-                           alt="{{$p->name}}">
-                      <div class="card-img-overlay d-flex z-index-0 p-3">
-                        <div class="w-100 mb-auto d-flex justify-content-end">
-                          {{--                      <div class="icon-md bg-dark rounded-circle fs-5">--}}
-                          {{--                        <a href="#" class="text-white"><i class="bi bi-book"></i></a>--}}
-                          {{--                      </div>--}}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-body px-3">
-                      <!-- Title -->
-                      <h6 class="card-title mb-0">
-                        {{$p->name}}
-                      </h6>
-                    </div>
-                  </a>
-
-                  <div class="card-footer pt-0 px-3">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <a class="btn btn-primary btn-sm" wire:click.prevent="addToCart({{$p->id}})">
-                        <i class="bi bi-cart-plus"></i>
-                        @lang('Add')
-                      </a>
-                      <h5 class="text-success mb-0">{{VinFormatHelper::formatMoney($p->price)}}</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              @include('ui-views::includes.cards.product-card-inc', ['product' => $p])
             @empty
               <h6 class="text-secondary">@lang('No products available')</h6>
             @endforelse
@@ -122,14 +71,6 @@
           <div class="col-12">
             <nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
               {{ $products->links() }}
-              {{--              <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">--}}
-              {{--                <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-double-left"></i></a></li>--}}
-              {{--                <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>--}}
-              {{--                <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>--}}
-              {{--                <li class="page-item mb-0"><a class="page-link" href="#">..</a></li>--}}
-              {{--                <li class="page-item mb-0"><a class="page-link" href="#">6</a></li>--}}
-              {{--                <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>--}}
-              {{--              </ul>--}}
             </nav>
           </div>
         </div>
