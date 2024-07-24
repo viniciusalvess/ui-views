@@ -3,7 +3,7 @@
   $slides = templateSlideShows();
   $products = templateProductsRecent();
   $logoDarkUrl = templateLogoDark();
-  $logoLightUrl = templateLogoDark();
+  $logoLightUrl = templateLogoLight();
 @endphp
   <!DOCTYPE html>
 <html>
