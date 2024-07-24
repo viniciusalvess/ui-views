@@ -105,7 +105,7 @@
           data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 148, 'stickySetTop': '-96px', 'stickyChangeLogo': true}">
     <div class="header-body border-color-primary border-top-0 box-shadow-none">
 
-      <div class="header-top header-top-default border-bottom-0 border-top-0">
+      <div class="header-top header-top-default border-bottom-0 border-top-0 d-none">
         <div class="container">
           <div class="header-row py-2">
             <div class="header-column justify-content-start">
@@ -175,9 +175,8 @@
               <div class="header-logo header-logo-sticky-change">
                 <a href="index.html">
 
-                  <img class="header-logo-sticky opacity-0" alt="Porto" width="auto" height="48" data-sticky-width="89"
-                       data-sticky-height="43" data-sticky-top="88" src="{{$logoDarkUrl}}">
-                  <img class="header-logo-non-sticky opacity-0" alt="Porto" width="auto" height="48"
+                  <img class="header-logo-sticky opacity-1" alt="Porto" width="auto" height="48" data-sticky-width="auto" data-sticky-height="28" data-sticky-top="95" src="{{$logoDarkUrl}}">
+                  <img class="header-logo-non-sticky opacity-1" alt="Porto" width="auto" height="48"
                        src="{{$logoLightUrl}}">
                 </a>
               </div>
